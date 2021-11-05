@@ -1,0 +1,156 @@
+@media(max-width: 991px) {
+	.toggle-btn{
+		display: block;
+	}
+	.navigation-menu {
+		display: none;
+	}
+	.logo{
+		position: static;
+		transform: inherit;
+	}
+	.h-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.logo a::after{
+		border-width: 90px 95px 0px;
+		left: 41%;
+	}
+	.about-img{
+		margin-top: 30px;
+	}
+	.slide-img {
+		position: absolute;
+		left: 0;
+		right: 0;
+		text-align: center;
+		z-index: -1;
+	}
+	.logo img{
+		width: 50px;
+	}
+}
+
+
+
+
+
+
+
+@media(max-width: 767px) {
+	.slider-wrap h1{
+		font-size: 60px;
+		line-height: 65px;
+		margin-bottom: 20px;
+		margin-top: 30px;
+	}
+	.slider-wrap b{
+		font-size: 80px;
+	}
+	.footer-wrap p{
+		max-width: 100%;
+	}
+	#slider li{
+		width: 290px;
+	}
+	.video-wrap.main {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.blog-wrap.main-blog {
+		margin-bottom: 30px;
+	}
+}
+
+
+
+
+
+
+
+@media(max-width: 575px) {
+	.slider {
+		height: 350px;
+		overflow: hidden;
+	}
+	.slider img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	.slider-wrap h1{
+		font-size: 45px;
+		line-height: 55px;
+		margin-bottom: 20px;
+		margin-top: 10px;
+		margin-left: 0;
+	}
+	.slider-wrap b{
+		font-size: 60px;
+	}
+	.main-title h3{
+		font-size: 30px;
+	}
+	.main-title h3::before{
+		font-size: 60px;
+	}
+	.main-title h3::after{
+		width: 100%;
+	}
+	.main-title{
+		margin-bottom: 25px;
+	}
+	.mt{
+		margin-top: 40px;
+	}
+	.mb{
+		margin-bottom: 40px;
+	}
+	.pt{
+		padding-top: 40px;
+	}
+	.pb{
+		padding-bottom: 40px;
+	}
+	.thumbnail-img{
+		height: auto;
+	}
+	.main .thumbnail-img{
+		height: auto;
+	}
+	.gallery.pb {
+		padding-bottom: 20px;
+	}
+	.footer-wrap p{
+		font-size: 16px;
+	}
+	.main-blog .blog-img{
+		height: 300px;
+	}
+	.blog-content{
+		padding: 20px;
+	}
+	.blog-content ul li+li {
+		margin-left: 20px;
+	}
+	.slide-img{
+		top: 0;
+		opacity: .7;
+	}
+	.s-wrap{
+		height: 350px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.slider-wrap span{
+		letter-spacing: 20px;
+	}
+}
+
+
+
+
+
+
