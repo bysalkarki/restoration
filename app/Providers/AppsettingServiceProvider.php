@@ -4,11 +4,11 @@ namespace App\Providers;
 
 use App\Models\Appsetting;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\ServiceProvider;
 
-class AppsettingProvider extends ServiceProvider
+class AppsettingServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -31,10 +31,11 @@ class AppsettingProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (!\App::runningInConsole() && count(Schema::getColumnListing('app_settings'))) {
-            $settings = AppSetting::all();
-            foreach ($settings as $key => $setting) {
-                Config::set('settings.' . $setting->key, $setting->value);
+        if (!\App::runningInConsole() && count(Schema::getColumnListing('appsettings'))) {
+            $settings = Appsetting::all();
+            foreach ($settings as $key => $setting)
+            {
+                Config::set('settings.'.$setting->key, $setting->value);
             }
         }
     }
