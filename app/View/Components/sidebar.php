@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class sidebar extends Component
 {
+    public $sliders;
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,7 @@ class sidebar extends Component
      */
     public function __construct()
     {
-        //
+        $this->sliders = $this->sidebarData();
     }
 
     /**
@@ -24,5 +25,28 @@ class sidebar extends Component
     public function render()
     {
         return view('components.sidebar');
+    }
+
+    private function sidebarData()
+    {
+        return [
+            [
+                'title' => 'Slider',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('slider.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('slider.create'),
+                    ]
+                ]
+            ]
+        ];
     }
 }
