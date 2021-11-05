@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'hello';
+    return config('settings.name');
 })->name('index');
 
 Route::prefix('admin')->group(function () {

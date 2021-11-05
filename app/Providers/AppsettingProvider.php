@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Appsetting;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ class AppsettingProvider extends ServiceProvider
         $this->app->bind('settings', function ($app) {
             return new Appsetting();
         });
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader = AliasLoader::getInstance();
         $loader->alias('Setting', Setting::class);
     }
 
