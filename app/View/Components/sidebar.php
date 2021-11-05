@@ -46,6 +46,12 @@ class sidebar extends Component
                         'href' => route('slider.create'),
                     ]
                 ]
+            ],
+            [
+                'title' => 'Setting',
+                'icon' => 'fas fa-cog',
+                'href' => route('appsetting.index'),
+                'child' => null,
             ]
         ];
     }
