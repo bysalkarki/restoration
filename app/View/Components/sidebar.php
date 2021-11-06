@@ -48,6 +48,24 @@ class sidebar extends Component
                 ]
             ],
             [
+                'title' => 'Partner',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('partner.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('partner.create'),
+                    ]
+                ]
+            ],
+
+            [
                 'title' => 'Setting',
                 'icon' => 'fas fa-cog',
                 'href' => route('appsetting.index'),

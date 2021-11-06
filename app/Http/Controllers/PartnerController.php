@@ -15,7 +15,7 @@ class PartnerController extends Controller
      */
     public function index(Request $request)
     {
-        $partners = Partner::all();
+        $partners = Partners::get();
 
         return view('partner.index', compact('partners'));
     }
@@ -26,7 +26,8 @@ class PartnerController extends Controller
      */
     public function create(Request $request)
     {
-        return view('partner.create');
+        $partner = new Partners();
+        return view('partner.form',compact('partner'));
     }
 
     /**
@@ -35,7 +36,7 @@ class PartnerController extends Controller
      */
     public function store(PartnerStoreRequest $request)
     {
-        $partner = Partner::create($request->validated());
+        $partner = Partners::create($request->validated());
 
         $request->session()->flash('partner.id', $partner->id);
 
@@ -47,9 +48,9 @@ class PartnerController extends Controller
      * @param \App\Models\Partners $partner
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Partner $partner)
+    public function show(Request $request, Partners $partner)
     {
-        return view('partner.show', compact('partner'));
+        return view('partner.form', compact('partner'));
     }
 
     /**
@@ -57,9 +58,9 @@ class PartnerController extends Controller
      * @param \App\Models\Partners $partner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, Partner $partner)
+    public function edit(Request $request, Partners $partner)
     {
-        return view('partner.edit', compact('partner'));
+        return view('partner.form', compact('partner'));
     }
 
     /**
@@ -67,7 +68,7 @@ class PartnerController extends Controller
      * @param \App\Models\Partners $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(PartnerUpdateRequest $request, Partner $partner)
+    public function update(PartnerUpdateRequest $request, Partners $partner)
     {
         $partner->update($request->validated());
 
@@ -81,7 +82,7 @@ class PartnerController extends Controller
      * @param \App\Models\Partners $partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Partner $partner)
+    public function destroy(Request $request, Partners $partner)
     {
         $partner->delete();
 
