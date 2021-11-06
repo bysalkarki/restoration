@@ -25,7 +25,7 @@ class TeamUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'position' => ['required', 'integer', 'gt:0'],
+            'position' => ['integer', 'gt:0'],
             'email' => ['email'],
             'facebook' => ['string'],
             'contact' => ['string'],

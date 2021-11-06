@@ -1,5 +1,6 @@
 created:
     - app/Http/Controllers/SliderController.php
+    - app/Http/Controllers/VideoController.php
     - app/Http/Controllers/BlogController.php
     - app/Http/Controllers/MenuController.php
     - app/Http/Controllers/CategoryController.php
@@ -9,6 +10,7 @@ created:
     - app/Http/Controllers/PartnerController.php
     - app/Http/Controllers/AppsettingController.php
     - database/factories/MenuFactory.php
+    - database/factories/VideoFactory.php
     - database/factories/AppsettingFactory.php
     - database/factories/SliderFactory.php
     - database/factories/CategoryFactory.php
@@ -18,19 +20,21 @@ created:
     - database/factories/EventFactory.php
     - database/factories/GalleryFactory.php
     - database/factories/TeamFactory.php
-    - database/migrations/2021_11_05_034935_create_menus_table.php
-    - database/migrations/2021_11_05_034936_create_appsettings_table.php
-    - database/migrations/2021_11_05_034937_create_sliders_table.php
-    - database/migrations/2021_11_05_034938_create_categories_table.php
-    - database/migrations/2021_11_05_034939_create_blogs_table.php
-    - database/migrations/2021_11_05_034940_create_contacts_table.php
-    - database/migrations/2021_11_05_034941_create_partners_table.php
-    - database/migrations/2021_11_05_034942_create_events_table.php
-    - database/migrations/2021_11_05_034943_create_galleries_table.php
-    - database/migrations/2021_11_05_034944_create_teams_table.php
-    - database/migrations/2021_11_05_034945_create_blog_category_table.php
-    - database/migrations/2021_11_05_034946_create_blog_gallery_table.php
+    - database/migrations/2021_11_06_154603_create_menus_table.php
+    - database/migrations/2021_11_06_154604_create_videos_table.php
+    - database/migrations/2021_11_06_154605_create_appsettings_table.php
+    - database/migrations/2021_11_06_154606_create_sliders_table.php
+    - database/migrations/2021_11_06_154607_create_categories_table.php
+    - database/migrations/2021_11_06_154608_create_blogs_table.php
+    - database/migrations/2021_11_06_154609_create_contacts_table.php
+    - database/migrations/2021_11_06_154610_create_partners_table.php
+    - database/migrations/2021_11_06_154611_create_events_table.php
+    - database/migrations/2021_11_06_154612_create_galleries_table.php
+    - database/migrations/2021_11_06_154613_create_teams_table.php
+    - database/migrations/2021_11_06_154614_create_blog_category_table.php
+    - database/migrations/2021_11_06_154615_create_blog_gallery_table.php
     - app/Models/Menu.php
+    - app/Models/Video.php
     - app/Models/Appsetting.php
     - app/Models/Slider.php
     - app/Models/Category.php
@@ -43,6 +47,7 @@ created:
     - database/seeders/CategorySeeder.php
     - database/seeders/BlogSeeder.php
     - tests/Feature/Http/Controllers/SliderControllerTest.php
+    - tests/Feature/Http/Controllers/VideoControllerTest.php
     - tests/Feature/Http/Controllers/BlogControllerTest.php
     - tests/Feature/Http/Controllers/MenuControllerTest.php
     - tests/Feature/Http/Controllers/CategoryControllerTest.php
@@ -53,6 +58,8 @@ created:
     - tests/Feature/Http/Controllers/AppsettingControllerTest.php
     - app/Http/Requests/SliderStoreRequest.php
     - app/Http/Requests/SliderUpdateRequest.php
+    - app/Http/Requests/VideoStoreRequest.php
+    - app/Http/Requests/VideoUpdateRequest.php
     - app/Http/Requests/BlogStoreRequest.php
     - app/Http/Requests/BlogUpdateRequest.php
     - app/Http/Requests/MenuStoreRequest.php
@@ -71,6 +78,10 @@ created:
     - resources/views/slider/create.blade.php
     - resources/views/slider/show.blade.php
     - resources/views/slider/edit.blade.php
+    - resources/views/video/index.blade.php
+    - resources/views/video/create.blade.php
+    - resources/views/video/show.blade.php
+    - resources/views/video/edit.blade.php
     - resources/views/blog/index.blade.php
     - resources/views/blog/create.blade.php
     - resources/views/blog/show.blade.php
@@ -104,13 +115,14 @@ updated:
     - routes/web.php
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', remember_token: 'string:100 nullable' }
-    Menu: { title: string, position: 'unsignedInteger default 1', metaTitle: 'string nullable', metaDescription: 'longText nullable', metaKeyphrase: 'string nullable', parallexImage: 'string nullable', featuredImage: 'string nullable', publishStatus: 'boolean default true', published_at: 'nullable timestamp', type: string, externalUrl: 'string nullable' }
+    Menu: { title: string, position: 'nullable unsignedInteger default:1', metaTitle: 'string nullable', metaDescription: 'longText nullable', metaKeyphrase: 'string nullable', parallexImage: 'string nullable', featuredImage: 'string nullable', publishStatus: 'boolean default:true', published_at: 'nullable timestamp', type: string, externalUrl: 'string nullable' }
+    Video: { title: string, description: 'longtext nullable', image: 'string  nullable', url: string }
     Appsetting: { key: 'string:400', value: longtext, type: 'string:20' }
-    Slider: { title: string, description: longText, publishStatus: 'boolean default 1', position: 'unsignedInteger default 1', image: string }
-    Category: { title: string, publishStatus: 'boolean default true', type: string, relationships: { belongsToMany: Blog } }
-    Blog: { title: string, description: longText, view: 'unsignedInteger default 1', slug: 'string unique', publishAt: 'dateTime nullable', publishStatus: 'boolean default true', image: string, relationships: { belongsToMany: 'Category,Gallery' } }
+    Slider: { title: string, description: longText, publishStatus: 'boolean default:1', position: 'nullable unsignedInteger default:1', image: string }
+    Category: { title: string, publishStatus: 'boolean default:true', type: string, relationships: { belongsToMany: Blog } }
+    Blog: { title: string, description: longText, view: 'unsignedInteger default:1', slug: 'string unique', publishAt: 'dateTime nullable', publishStatus: 'boolean default:true', image: string, relationships: { belongsToMany: 'Category,Gallery' } }
     Contact: { name: string, email: string, message: longText, verified: 'boolean default false' }
-    Partners: { name: string, image: string, website: 'string nullable', position: 'unsignedInteger default 1', publishStatus: 'boolean default true' }
-    event: { title: string, summary: 'varchar 350', description: longText, image: 'string nullable', date: 'dateTime nullable', position: 'unsignedInteger default 1', publishStatus: 'boolean default true', location: 'string nullable', venue: 'string nullable' }
-    Gallery: { title: 'string nullable', image: 'string nullable', publishStatus: 'boolean default true' }
-    Team: { name: string, position: 'unsignedBigInteger default 1', email: 'string nullable', facebook: 'string  nullable', contact: 'string varchar 15 nullable', twitter: 'string  nullable', instagram: 'string nullable', designation: 'string nullable', description: 'string nullable' }
+    Partners: { name: string, image: string, website: 'string nullable', position: 'nullable unsignedInteger default:1', publishStatus: 'boolean default:true' }
+    event: { title: string, summary: 'varchar 350', description: longText, image: 'string nullable', date: 'dateTime nullable', position: 'nullable unsignedInteger default:1', publishStatus: 'boolean default:true', location: 'string nullable', venue: 'string nullable' }
+    Gallery: { title: 'string nullable', image: 'string nullable', publishStatus: 'boolean default:true' }
+    Team: { name: string, position: 'nullable unsignedBigInteger default:1', email: 'string nullable', facebook: 'string  nullable', contact: 'string varchar 15 nullable', twitter: 'string  nullable', instagram: 'string nullable', designation: 'string nullable', description: 'string nullable' }

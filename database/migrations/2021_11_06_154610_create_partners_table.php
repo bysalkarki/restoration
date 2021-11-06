@@ -18,8 +18,8 @@ class CreatePartnersTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('website')->nullable();
-            $table->unsignedInteger('position')->default();
-            $table->boolean('publishStatus')->default();
+            $table->unsignedInteger('position')->nullable()->default(1);
+            $table->boolean('publishStatus')->default(true);
             $table->timestamps();
         });
     }

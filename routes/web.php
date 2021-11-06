@@ -23,9 +23,9 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-
 Route::resource('slider', App\Http\Controllers\SliderController::class);
 
+Route::resource('video', App\Http\Controllers\VideoController::class);
 Route::resource('blog', App\Http\Controllers\BlogController::class);
 
 Route::resource('menu', App\Http\Controllers\MenuController::class);

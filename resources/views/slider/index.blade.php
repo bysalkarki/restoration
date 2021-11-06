@@ -7,8 +7,8 @@
                 <tr>
                     <x-table.td>{{ $key + 1 }}</x-table.td>
                     <x-table.td>{{ $slider->title }}</x-table.td>
-                    <x-table.td><img src="{{ $slider->image }}" height="20px" width="20px" /></x-table.td>
-                    <x-table.td>{{ $slider->publishStatus }}</x-table.td>
+                    <x-table.td><img src="{{ $slider->image }}" height="150px" width="auto" /></x-table.td>
+                    <x-table.td>{{ $slider->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                 </tr>
             @empty
                 <tr>

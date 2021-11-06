@@ -4,5 +4,5 @@ require("jquery");
 require("@popperjs/core");
 require("jquery-ui");
 require('./bootstrap');
-require('admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js');
 require('admin-lte');
+require('../../public/vendor/laravel-file-manager/js/stand-alone-button');

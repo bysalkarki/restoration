@@ -60,20 +60,17 @@ class MenuControllerTest extends TestCase
     public function store_saves_and_redirects()
     {
         $title = $this->faker->sentence(4);
-        $position = $this->faker->randomNumber();
         $publishStatus = $this->faker->boolean;
         $type = $this->faker->word;
 
         $response = $this->post(route('menu.store'), [
             'title' => $title,
-            'position' => $position,
             'publishStatus' => $publishStatus,
             'type' => $type,
         ]);
 
         $menus = Menu::query()
             ->where('title', $title)
-            ->where('position', $position)
             ->where('publishStatus', $publishStatus)
             ->where('type', $type)
             ->get();
@@ -134,13 +131,11 @@ class MenuControllerTest extends TestCase
     {
         $menu = Menu::factory()->create();
         $title = $this->faker->sentence(4);
-        $position = $this->faker->randomNumber();
         $publishStatus = $this->faker->boolean;
         $type = $this->faker->word;
 
         $response = $this->put(route('menu.update', $menu), [
             'title' => $title,
-            'position' => $position,
             'publishStatus' => $publishStatus,
             'type' => $type,
         ]);
@@ -151,7 +146,6 @@ class MenuControllerTest extends TestCase
         $response->assertSessionHas('menu.id', $menu->id);
 
         $this->assertEquals($title, $menu->title);
-        $this->assertEquals($position, $menu->position);
         $this->assertEquals($publishStatus, $menu->publishStatus);
         $this->assertEquals($type, $menu->type);
     }

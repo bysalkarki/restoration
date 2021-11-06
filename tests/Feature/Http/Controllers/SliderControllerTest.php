@@ -62,14 +62,12 @@ class SliderControllerTest extends TestCase
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $publishStatus = $this->faker->boolean;
-        $position = $this->faker->randomNumber();
         $image = $this->faker->word;
 
         $response = $this->post(route('slider.store'), [
             'title' => $title,
             'description' => $description,
             'publishStatus' => $publishStatus,
-            'position' => $position,
             'image' => $image,
         ]);
 
@@ -77,7 +75,6 @@ class SliderControllerTest extends TestCase
             ->where('title', $title)
             ->where('description', $description)
             ->where('publishStatus', $publishStatus)
-            ->where('position', $position)
             ->where('image', $image)
             ->get();
         $this->assertCount(1, $sliders);
@@ -139,14 +136,12 @@ class SliderControllerTest extends TestCase
         $title = $this->faker->sentence(4);
         $description = $this->faker->text;
         $publishStatus = $this->faker->boolean;
-        $position = $this->faker->randomNumber();
         $image = $this->faker->word;
 
         $response = $this->put(route('slider.update', $slider), [
             'title' => $title,
             'description' => $description,
             'publishStatus' => $publishStatus,
-            'position' => $position,
             'image' => $image,
         ]);
 
@@ -158,7 +153,6 @@ class SliderControllerTest extends TestCase
         $this->assertEquals($title, $slider->title);
         $this->assertEquals($description, $slider->description);
         $this->assertEquals($publishStatus, $slider->publishStatus);
-        $this->assertEquals($position, $slider->position);
         $this->assertEquals($image, $slider->image);
     }
 

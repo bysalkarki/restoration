@@ -27,7 +27,7 @@ class SliderUpdateRequest extends FormRequest
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'publishStatus' => ['required'],
-            'position' => ['required', 'integer', 'gt:0'],
+            'position' => ['integer', 'gt:0'],
             'image' => ['required', 'string'],
         ];
     }

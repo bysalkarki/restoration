@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Appsetting extends Model
+class Video extends Model
 {
     use HasFactory;
 
@@ -15,9 +15,10 @@ class Appsetting extends Model
      * @var array
      */
     protected $fillable = [
-        'key',
-        'value',
-        'type',
+        'title',
+        'description',
+        'image',
+        'url',
     ];
 
     /**

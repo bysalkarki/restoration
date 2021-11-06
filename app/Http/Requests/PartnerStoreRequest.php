@@ -27,7 +27,7 @@ class PartnerStoreRequest extends FormRequest
             'name' => ['required', 'string'],
             'image' => ['required', 'string'],
             'website' => ['string'],
-            'position' => ['required', 'integer', 'gt:0'],
+            'position' => ['integer', 'gt:0'],
             'publishStatus' => ['required'],
         ];
     }

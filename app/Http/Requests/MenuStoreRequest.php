@@ -25,7 +25,7 @@ class MenuStoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
-            'position' => ['required', 'integer', 'gt:0'],
+            'position' => ['integer', 'gt:0'],
             'metaTitle' => ['string'],
             'metaDescription' => ['string'],
             'metaKeyphrase' => ['string'],

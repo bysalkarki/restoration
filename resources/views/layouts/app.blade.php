@@ -48,7 +48,6 @@
         @include('layouts._includes._asidebar')
         @include('layouts._includes._footer')
     </div>
-    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
 </body>

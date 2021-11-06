@@ -60,16 +60,13 @@ class TeamControllerTest extends TestCase
     public function store_saves_and_redirects()
     {
         $name = $this->faker->name;
-        $position = $this->faker->randomNumber();
 
         $response = $this->post(route('team.store'), [
             'name' => $name,
-            'position' => $position,
         ]);
 
         $teams = Team::query()
             ->where('name', $name)
-            ->where('position', $position)
             ->get();
         $this->assertCount(1, $teams);
         $team = $teams->first();
@@ -128,11 +125,9 @@ class TeamControllerTest extends TestCase
     {
         $team = Team::factory()->create();
         $name = $this->faker->name;
-        $position = $this->faker->randomNumber();
 
         $response = $this->put(route('team.update', $team), [
             'name' => $name,
-            'position' => $position,
         ]);
 
         $team->refresh();
@@ -141,7 +136,6 @@ class TeamControllerTest extends TestCase
         $response->assertSessionHas('team.id', $team->id);
 
         $this->assertEquals($name, $team->name);
-        $this->assertEquals($position, $team->position);
     }
 
 

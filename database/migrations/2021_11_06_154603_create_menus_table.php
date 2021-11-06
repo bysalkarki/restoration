@@ -16,13 +16,13 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedInteger('position')->default();
+            $table->unsignedInteger('position')->nullable()->default(1);
             $table->string('metaTitle')->nullable();
             $table->longText('metaDescription')->nullable();
             $table->string('metaKeyphrase')->nullable();
             $table->string('parallexImage')->nullable();
             $table->string('featuredImage')->nullable();
-            $table->boolean('publishStatus')->default();
+            $table->boolean('publishStatus')->default(true);
             $table->timestamp('published_at')->nullable();
             $table->string('type');
             $table->string('externalUrl')->nullable();

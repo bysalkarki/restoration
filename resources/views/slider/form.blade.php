@@ -12,7 +12,7 @@
         <x-form.input name="title" :value="$slider->title" :option="['placeholder'=>'slider','required'=>true]" />
         <x-form.input name="description" :value="$slider->description" type="textarea"
             :option="['placeholder'=>'slider','required'=>'true']" />
-        <x-form.checkbox />
+        <x-form.publishStatus :value="$slider->publishStatus" />
         <x-form.image title="image" :value="$slider->image" />
         <x-button-component />
         </form>

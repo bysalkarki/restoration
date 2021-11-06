@@ -61,20 +61,17 @@ class PartnerControllerTest extends TestCase
     {
         $name = $this->faker->name;
         $image = $this->faker->word;
-        $position = $this->faker->randomNumber();
         $publishStatus = $this->faker->boolean;
 
         $response = $this->post(route('partner.store'), [
             'name' => $name,
             'image' => $image,
-            'position' => $position,
             'publishStatus' => $publishStatus,
         ]);
 
         $partners = Partner::query()
             ->where('name', $name)
             ->where('image', $image)
-            ->where('position', $position)
             ->where('publishStatus', $publishStatus)
             ->get();
         $this->assertCount(1, $partners);
@@ -135,13 +132,11 @@ class PartnerControllerTest extends TestCase
         $partner = Partner::factory()->create();
         $name = $this->faker->name;
         $image = $this->faker->word;
-        $position = $this->faker->randomNumber();
         $publishStatus = $this->faker->boolean;
 
         $response = $this->put(route('partner.update', $partner), [
             'name' => $name,
             'image' => $image,
-            'position' => $position,
             'publishStatus' => $publishStatus,
         ]);
 
@@ -152,7 +147,6 @@ class PartnerControllerTest extends TestCase
 
         $this->assertEquals($name, $partner->name);
         $this->assertEquals($image, $partner->image);
-        $this->assertEquals($position, $partner->position);
         $this->assertEquals($publishStatus, $partner->publishStatus);
     }
 

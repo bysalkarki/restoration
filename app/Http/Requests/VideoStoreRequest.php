@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PartnerUpdateRequest extends FormRequest
+class VideoStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class PartnerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string'],
-            'image' => ['required', 'string'],
-            'website' => ['string'],
-            'position' => ['integer', 'gt:0'],
-            'publishStatus' => ['required'],
+            'title' => ['required', 'string'],
+            'description' => ['string'],
+            'image' => ['string'],
+            'url' => ['required', 'string'],
         ];
     }
 }
