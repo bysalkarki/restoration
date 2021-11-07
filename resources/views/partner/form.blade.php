@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="Slider Form" footer="">
-        @if ($slider->id)
-            <form action="{{ route('slider.update', $slider->id) }}" method="POST">
+    <x-card title="partner Form" footer="">
+        @if ($partner->id)
+            <form action="{{ route('partner.update', $partner->id) }}" method="POST">
                 @method('PATCH')
             @else
-                <form action="{{ route('slider.store') }}" method="POST">
+                <form action="{{ route('partner.store') }}" method="POST">
         @endif
         @csrf
-        <x-form.input name="name" :value="$partner->name" :option="['placeholder'=>'slider','required'=>true]" />
+        <x-form.input name="name" :value="$partner->name" :option="['placeholder'=>'partner','required'=>true]" />
         <x-form.publishStatus :value="$partner->publishStatus" />
         <x-form.image title="image" :value="$partner->image" />
-        <x-form.input type="url" :value="$partner->image" name="website" />
+        <x-form.input type="url" :value="$partner->website" name="website" :option="['placeholder'=>'website','required'=>true]"  />
         <x-button-component />
         </form>
     </x-card>

@@ -45,11 +45,5 @@ class Blog extends Model
         return $this->belongsToMany(\App\Models\Category::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function galleries()
-    {
-        return $this->belongsToMany(\App\Models\Gallery::class);
-    }
+
 }

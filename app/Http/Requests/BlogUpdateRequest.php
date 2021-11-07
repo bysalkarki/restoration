@@ -26,9 +26,7 @@ class BlogUpdateRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'view' => ['required', 'integer', 'gt:0'],
-            'slug' => ['required', 'string', 'unique:blogs,slug'],
-            'publishAt' => [''],
+            'publishAt' => ['required'],
             'publishStatus' => ['required'],
             'image' => ['required', 'string'],
         ];

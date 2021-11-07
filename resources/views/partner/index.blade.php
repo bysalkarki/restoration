@@ -6,7 +6,7 @@
             @forelse ($partners as $key=>$partner)
                 <tr>
                     <x-table.td>{{ $key + 1 }}</x-table.td>
-                    <x-table.td>{{ $partner->title }}</x-table.td>
+                    <x-table.td>{{ $partner->name }}</x-table.td>
                     <x-table.td><img src="{{ $partner->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $partner->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>{{ $partner->website }}</x-table.td>

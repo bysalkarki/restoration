@@ -12,8 +12,6 @@ models:
     type: string
     externalUrl: string nullable
 
-
-
   Video:
     title: string
     description: longtext nullable
@@ -37,7 +35,7 @@ models:
     publishStatus: boolean default:true
     type: string
     relationships:
-      belongsToMany: Blog
+      belongsToMany: Blog,Gallery
 
   Blog:
     title: string
@@ -48,7 +46,7 @@ models:
     publishStatus: boolean default:true
     image: string
     relationships:
-      belongsToMany: Category,Gallery
+      belongsToMany: Category
 
   Contact:
     name: string
@@ -78,6 +76,8 @@ models:
     title: string nullable
     image: string nullable
     publishStatus: boolean default:true
+    relationships:
+      belongsToMany: Category
 
   Team:
     name: string
@@ -91,24 +91,15 @@ models:
     description: string nullable
 
 controllers:
-  Slider:
-    resource
-  Video:
-    resource
-  Blog:
-    resource
-  Menu:
-    resource
-  Category:
-    resource
-  Gallery:
-    resource
-  Event:
-    resource
-  Team:
-    resource
-  Partner:
-    resource
+  Slider: resource
+  Video: resource
+  Blog: resource
+  Menu: resource
+  Category: resource
+  Gallery: resource
+  Event: resource
+  Team: resource
+  Partner: resource
   Appsetting:
     index:
       query: all

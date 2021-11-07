@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class BlogStoreRequest extends FormRequest
 {
@@ -28,9 +29,17 @@ class BlogStoreRequest extends FormRequest
             'description' => ['required', 'string'],
             'view' => ['required', 'integer', 'gt:0'],
             'slug' => ['required', 'string', 'unique:blogs,slug'],
-            'publishAt' => [''],
+            'publishAt' => ['required'],
             'publishStatus' => ['required'],
             'image' => ['required', 'string'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'slug' => Str::slug(request()->title) . '' . now()->timestamp,
+            'view' => 1,
+        ]);
     }
 }

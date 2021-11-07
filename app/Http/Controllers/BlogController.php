@@ -15,7 +15,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $blogs = Blog::all();
+        $blogs = Blog::select('id', 'title', 'image', 'publishStatus')->latest()->paginate(20);
 
         return view('blog.index', compact('blogs'));
     }
@@ -26,7 +26,8 @@ class BlogController extends Controller
      */
     public function create(Request $request)
     {
-        return view('blog.create');
+        $blog = new Blog();
+        return view('blog.form', compact('blog'));
     }
 
     /**
@@ -59,7 +60,7 @@ class BlogController extends Controller
      */
     public function edit(Request $request, Blog $blog)
     {
-        return view('blog.edit', compact('blog'));
+        return view('blog.form', compact('blog'));
     }
 
     /**

@@ -65,6 +65,44 @@ class sidebar extends Component
                 ]
             ],
 
+            //category
+
+            [
+                'title' => 'category',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('category.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('category.create'),
+                    ]
+                ]
+            ],
+
+            //blogs
+            [
+                'title' => 'blog',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('blog.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('blog.create'),
+                    ]
+                ]
+            ],
             [
                 'title' => 'Setting',
                 'icon' => 'fas fa-cog',
