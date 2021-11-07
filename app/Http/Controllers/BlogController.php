@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BlogStoreRequest;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -27,7 +28,9 @@ class BlogController extends Controller
     public function create(Request $request)
     {
         $blog = new Blog();
-        return view('blog.form', compact('blog'));
+        $category = $this->getCategory();
+        $selectedCategories = [];
+        return view('blog.form', compact('blog', 'category', 'selectedCategories'));
     }
 
     /**
@@ -60,7 +63,10 @@ class BlogController extends Controller
      */
     public function edit(Request $request, Blog $blog)
     {
-        return view('blog.form', compact('blog'));
+
+        $category = $this->getCategory();
+        $selectedCategories = $blog->categories()->pluck('id');
+        return view('blog.form', compact('blog', 'category', 'selectedCategories'));
     }
 
     /**
@@ -87,5 +93,10 @@ class BlogController extends Controller
         $blog->delete();
 
         return redirect()->route('blog.index');
+    }
+
+    public function getCategory()
+    {
+        return Category::where('type', 'blog')->get()->mapwithkeys(fn ($item, $key) => [$item->id => $item->title]);
     }
 }
