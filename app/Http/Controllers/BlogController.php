@@ -16,7 +16,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $blogs = Blog::select('id', 'title', 'image', 'publishStatus')->latest()->paginate(20);
+        $blogs = Blog::select('id', 'title', 'image', 'publishStatus')->latest()->paginate(1);
 
         return view('blog.index', compact('blogs'));
     }

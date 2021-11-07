@@ -15,7 +15,7 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-        {{ $footer }}
+        {!! $footer !!}
     </div>
     <!-- /.card-footer-->
 </div>
