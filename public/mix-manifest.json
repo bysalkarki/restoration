@@ -1,8 +1,5 @@
 {
     "/js/vue.js": "/js/vue.js",
     "/js/app.js": "/js/app.js",
-    "/js/front.js": "/js/front.js",
-    "/js/custom.js": "/js/custom.js",
-    "/css/front.css": "/css/front.css",
     "/css/app.css": "/css/app.css"
 }

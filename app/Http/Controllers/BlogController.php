@@ -39,11 +39,15 @@ class BlogController extends Controller
      */
     public function store(BlogStoreRequest $request)
     {
-        $blog = Blog::create($request->validated());
-
-        $request->session()->flash('blog.id', $blog->id);
-
-        return redirect()->route('blog.index');
+        try {
+            $blog = Blog::create($request->validated());
+            $blog->sync($request->category);
+            $request->session()->flash('success', $blog->id);
+            return redirect()->route('blog.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**
@@ -76,11 +80,15 @@ class BlogController extends Controller
      */
     public function update(BlogUpdateRequest $request, Blog $blog)
     {
-        $blog->update($request->validated());
-
-        $request->session()->flash('blog.id', $blog->id);
-
-        return redirect()->route('blog.index');
+        try {
+            $blog->update($request->validated());
+            $blog->sync($request->category);
+            $request->session()->flash('blog.id', $blog->id);
+            return redirect()->route('blog.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**

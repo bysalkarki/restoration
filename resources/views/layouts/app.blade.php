@@ -50,6 +50,8 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
+    @include('layouts._includes._notify')
+
 </body>
 
 </html>
