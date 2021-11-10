@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected const TYPE = [
+        'BLOG' => 'blog',
+        'GALLERY' => 'gallery',
+        'NOTICE' => 'notice',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -35,6 +40,14 @@ class Category extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function blogs()
+    {
+        return $this->belongsToMany(\App\Models\Blog::class);
+    }
+    public function galleries()
+    {
+        return $this->belongsToMany(\App\Models\Gallery::class);
+    }
+    public function notices()
     {
         return $this->belongsToMany(\App\Models\Blog::class);
     }

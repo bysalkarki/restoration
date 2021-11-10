@@ -88,8 +88,8 @@ class sidebar extends Component
 
             //blogs
             [
-                'title' => 'blog',
-                'icon' => 'fas fa-archive  ',
+                'title' => 'blog/Notice',
+                'icon' => 'fas fa-archive',
                 'href' => '#',
                 'child' => [
                     [

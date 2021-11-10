@@ -11,7 +11,7 @@
         @csrf
         <x-form.input name="title" :value="$category->title" :option="['placeholder'=>'title','required'=>true]" />
         <x-form.publishStatus :value="$category->publishStatus" />
-        <x-form.publishStatus name="type" :list='["gallery"=>"Gallery","blog"=>"Blog"]' :value="$category->type" />
+        <x-form.publishStatus name="type" :list='$category->getType()' :value="$category->type" />
 
         <x-button-component />
         </form>
