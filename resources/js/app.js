@@ -1,9 +1,8 @@
 window.$ = window.jQuery = require('jquery');
-
+window.Popper = require('popper.js');
+window.toastr = require('toastr');
 require("jquery-ui");
-require("@popperjs/core");
 require('bootstrap');
-require('toastr');
 require('admin-lte');
 require('../../public/vendor/laravel-file-manager/js/stand-alone-button');
 
