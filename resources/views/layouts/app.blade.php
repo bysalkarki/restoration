@@ -49,8 +49,6 @@
         @include('layouts._includes._footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{asset('js/front/bootstrap.bundle.min.js')}}"></script>
-
     @stack('scripts')
     @include('layouts._includes._notify')
 
