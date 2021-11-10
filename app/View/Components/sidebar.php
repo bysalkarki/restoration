@@ -158,6 +158,24 @@ class sidebar extends Component
                     ]
                 ]
             ],
+            //Menu
+            [
+                'title' => 'menu',
+                'icon' => 'fas fa-users',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('menu.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('menu.create'),
+                    ]
+                ]
+            ],
             //AppSettings
             [
                 'title' => 'Setting',

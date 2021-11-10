@@ -10,10 +10,7 @@
                     });
                 @endphp
 
-                <li
-                    class="nav-item @if (request()->is($children->toArray()))
-{{ 'menu-open active' }}
-                @endif">
+                <li class="nav-item @if (request()->is($children->toArray())){{ 'menu-open active' }} @endif">
                     <a href="{{ $slider['href'] }}"
                         class="nav-link @if (request()->is(str_replace(asset('/'),'',$slider['href'])))
                         {{ 'active' }}
