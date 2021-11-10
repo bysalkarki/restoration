@@ -27,7 +27,7 @@ mix.webpackConfig((webpack) => {
  |
  */
 mix.js("resources/js/vue.js", "public/js").vue({ version: 3 });
-
+mix.js("resources/js/bootstrap.js", "public/js");
 mix.js("resources/js/app.js", "public/js").postCss(
     "resources/css/app.css",
     "public/css",

@@ -16,7 +16,9 @@
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
-        <div class="navbar-search-block">
+        <div class="navbar-search-block @if (request()->keyword)
+            {{"navbar-search-open"}}
+        @endif">
           <form class="form-inline">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="keyword" value="{{request()->keyword}}">

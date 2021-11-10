@@ -51,4 +51,9 @@ class Category extends Model
     {
         return $this->belongsToMany(\App\Models\Blog::class);
     }
+
+    public function getType() : array
+    {
+        return Self::TYPE;
+    }
 }
