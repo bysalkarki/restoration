@@ -10,7 +10,7 @@
                     });
                 @endphp
 
-                <li class="nav-item @if (request()->is($children->toArray())){{ 'menu-open active' }} @endif">
+                <li class="nav-item text-capitalize @if (request()->is($children->toArray())){{ 'menu-open active' }} @endif">
                     <a href="{{ $slider['href'] }}"
                         class="nav-link @if (request()->is(str_replace(asset('/'),'',$slider['href'])))
                         {{ 'active' }}
@@ -39,7 +39,7 @@
             @endif
             <li class="nav-item">
                 <a href="{{ $slider['href'] }}"
-                    class="nav-link @if (request()->is(str_replace(asset('/'),'',$slider['href'])))
+                    class="nav-link  text-capitalize @if (request()->is(str_replace(asset('/'),'',$slider['href'])))
                     {{ 'active' }}
                                         @endif">
                     <i class="nav-icon {{ $slider['icon'] }}"></i>

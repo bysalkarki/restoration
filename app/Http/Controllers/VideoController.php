@@ -15,7 +15,9 @@ class VideoController extends Controller
      */
     public function index(Request $request)
     {
-        $videos = Video::all();
+        $videos = Video::when($request->keyword, fn ($query) => $query->where('title', 'like', "%$request->keyword%"))
+            ->latest()
+            ->paginate(10);
 
         return view('video.index', compact('videos'));
     }
@@ -26,7 +28,8 @@ class VideoController extends Controller
      */
     public function create(Request $request)
     {
-        return view('video.create');
+        $video = new Video();
+        return view('video.form', compact('video'));
     }
 
     /**
@@ -59,7 +62,7 @@ class VideoController extends Controller
      */
     public function edit(Request $request, Video $video)
     {
-        return view('video.edit', compact('video'));
+        return view('video.form', compact('video'));
     }
 
     /**

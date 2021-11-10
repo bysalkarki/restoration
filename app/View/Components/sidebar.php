@@ -47,9 +47,10 @@ class sidebar extends Component
                     ]
                 ]
             ],
+            //partner
             [
                 'title' => 'Partner',
-                'icon' => 'fas fa-image',
+                'icon' => 'fas fa-handshake',
                 'href' => '#',
                 'child' => [
                     [
@@ -69,7 +70,7 @@ class sidebar extends Component
 
             [
                 'title' => 'category',
-                'icon' => 'fas fa-image',
+                'icon' => 'fas fa-list-ul',
                 'href' => '#',
                 'child' => [
                     [
@@ -88,7 +89,7 @@ class sidebar extends Component
             //blogs
             [
                 'title' => 'blog',
-                'icon' => 'fas fa-image',
+                'icon' => 'fas fa-archive  ',
                 'href' => '#',
                 'child' => [
                     [
@@ -106,7 +107,7 @@ class sidebar extends Component
             //Events
             [
                 'title' => 'Event',
-                'icon' => 'fas fa-image',
+                'icon' => 'fas fa-calendar ',
                 'href' => '#',
                 'child' => [
                     [
@@ -143,7 +144,7 @@ class sidebar extends Component
             //GAllery
             [
                 'title' => 'Gallery',
-                'icon' => 'fas fa-users',
+                'icon' => 'fas fa-images',
                 'href' => '#',
                 'child' => [
                     [
@@ -161,7 +162,7 @@ class sidebar extends Component
             //Menu
             [
                 'title' => 'menu',
-                'icon' => 'fas fa-users',
+                'icon' => 'fas fa-list',
                 'href' => '#',
                 'child' => [
                     [
@@ -173,6 +174,25 @@ class sidebar extends Component
                         'title' => 'create',
                         'icon' => 'fas fa-store ',
                         'href' => route('menu.create'),
+                    ]
+                ]
+            ],
+
+              //Video
+              [
+                'title' => 'video',
+                'icon' => 'fas fa-video',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('video.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('video.create'),
                     ]
                 ]
             ],
