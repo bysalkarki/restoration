@@ -24,6 +24,7 @@ class Event extends Model
         'publishStatus',
         'location',
         'venue',
+        'slug',
     ];
 
     /**

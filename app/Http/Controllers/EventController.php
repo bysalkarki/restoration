@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\Models\Event;
 use App\Http\Requests\EventStoreRequest;
 use App\Http\Requests\EventUpdateRequest;
-use App\event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -16,7 +15,10 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::all();
+        $events = Event::select('id', 'title', 'image', 'publishStatus', 'date')
+            ->when($request->keyword, fn ($query) => $query->where('title', 'like', "%$request->keyword%"))
+            ->latest()
+            ->paginate(10);
 
         return view('event.index', compact('events'));
     }
@@ -27,7 +29,8 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
-        return view('event.create');
+        $event = new event();
+        return view('event.form', compact('event'));
     }
 
     /**
@@ -36,11 +39,14 @@ class EventController extends Controller
      */
     public function store(EventStoreRequest $request)
     {
-        $event = Event::create($request->validated());
-
-        $request->session()->flash('event.id', $event->id);
-
-        return redirect()->route('event.index');
+        try {
+            $event = Event::create($request->validated());
+            $request->session()->flash('success', 'event Added successfully');
+            return redirect()->route('event.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**
@@ -60,7 +66,7 @@ class EventController extends Controller
      */
     public function edit(Request $request, Event $event)
     {
-        return view('event.edit', compact('event'));
+        return view('event.form', compact('event'));
     }
 
     /**
@@ -70,11 +76,14 @@ class EventController extends Controller
      */
     public function update(EventUpdateRequest $request, Event $event)
     {
-        $event->update($request->validated());
-
-        $request->session()->flash('event.id', $event->id);
-
-        return redirect()->route('event.index');
+        try {
+            $event->update($request->validated());
+            $request->session()->flash('success', $event->title . " updated successfully");
+            return redirect()->route('event.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**

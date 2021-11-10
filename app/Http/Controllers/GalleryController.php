@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GalleryStoreRequest;
 use App\Http\Requests\GalleryUpdateRequest;
+use App\Models\Category;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class GalleryController extends Controller
 {
@@ -15,7 +17,9 @@ class GalleryController extends Controller
      */
     public function index(Request $request)
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::when($request->keyword, fn ($query) => $query->where('name', 'like', "%$request->keyword%"))
+            ->latest()
+            ->paginate(10);
 
         return view('gallery.index', compact('galleries'));
     }
@@ -26,7 +30,10 @@ class GalleryController extends Controller
      */
     public function create(Request $request)
     {
-        return view('gallery.create');
+        $gallery = new Gallery();
+        $categories = $this->category();
+        $selectedCategories = [];
+        return view('gallery.form', compact('gallery', 'categories', 'selectedCategories'));
     }
 
     /**
@@ -35,11 +42,16 @@ class GalleryController extends Controller
      */
     public function store(GalleryStoreRequest $request)
     {
-        $gallery = Gallery::create($request->validated());
+        try {
+            $data = $request->validated();
+            $gallery = Gallery::create(Arr::except($data, $data['category']));
+            $request->session()->flash('gallery.id', $gallery->id);
 
-        $request->session()->flash('gallery.id', $gallery->id);
-
-        return redirect()->route('gallery.index');
+            return redirect()->route('gallery.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('gallery.id', $gallery->id);
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -59,7 +71,9 @@ class GalleryController extends Controller
      */
     public function edit(Request $request, Gallery $gallery)
     {
-        return view('gallery.edit', compact('gallery'));
+        $categories = $this->category();
+        $selectedCategories = $gallery->category()->pluck('id');
+        return view('gallery.form', compact('gallery', 'categories', 'selectedCategories'));
     }
 
     /**
@@ -86,5 +100,10 @@ class GalleryController extends Controller
         $gallery->delete();
 
         return redirect()->route('gallery.index');
+    }
+
+    public function category()
+    {
+        return Category::Where('type', 'gallery')->get()->mapWithKeys(fn ($item, $key) => [$item->id => $item->title]);
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Menu;
+use Illuminate\Support\Str;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class MenuStoreRequest extends FormRequest
@@ -26,15 +29,25 @@ class MenuStoreRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'position' => ['integer', 'gt:0'],
+            'description' => ['string'],
             'metaTitle' => ['string'],
             'metaDescription' => ['string'],
             'metaKeyphrase' => ['string'],
             'parallexImage' => ['string'],
             'featuredImage' => ['string'],
             'publishStatus' => ['required'],
-            'published_at' => [''],
+            'published_at' => ['nullable'],
             'type' => ['required', 'string'],
             'externalUrl' => ['string'],
+            'slug' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'slug' => Str::slug(request()->type .'-'.request()->title) . '' . now()->timestamp,
+            'position' => 1,
+        ]);
     }
 }

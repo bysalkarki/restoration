@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogGalleryTable extends Migration
+class CreateCategoryGalleryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateBlogGalleryTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_gallery', function (Blueprint $table) {
-            $table->foreignId('blog_id');
+        Schema::create('category_gallery', function (Blueprint $table) {
+            $table->foreignId('category_id');
             $table->foreignId('gallery_id');
         });
     }
@@ -26,6 +26,6 @@ class CreateBlogGalleryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_gallery');
+        Schema::dropIfExists('category_gallery');
     }
 }

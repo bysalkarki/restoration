@@ -29,4 +29,13 @@ class Gallery extends Model
         'id' => 'integer',
         'publishStatus' => 'boolean',
     ];
+    /**
+     * The category that belong to the Gallery
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function category()
+    {
+        return $this->belongsToMany(Category::class, 'category_gallery', 'category_id', 'gallery_id');
+    }
 }

@@ -16,6 +16,7 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->longText('description')->nullable();
             $table->unsignedInteger('position')->nullable()->default(1);
             $table->string('metaTitle')->nullable();
             $table->longText('metaDescription')->nullable();
@@ -25,6 +26,7 @@ class CreateMenusTable extends Migration
             $table->boolean('publishStatus')->default(true);
             $table->timestamp('published_at')->nullable();
             $table->string('type');
+            $table->string('slug')->unique();
             $table->string('externalUrl')->nullable();
             $table->timestamps();
         });

@@ -24,7 +24,14 @@ class EventUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'event' => ['required'],
+            'title' => ['required'],
+            'summary' => ['required'],
+            'description' => ['required'],
+            'image' => ['nullable', 'url'],
+            'date' => ['nullable', 'date'],
+            'publishStatus' => ['required', 'boolean'],
+            'location' => ['nullable'],
+            'venue' => ['nullable'],
         ];
     }
 }

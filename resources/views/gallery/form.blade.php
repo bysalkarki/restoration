@@ -10,10 +10,9 @@
         @endif
         @csrf
         <x-form.input name="name" :value="$gallery->name" :option="['placeholder'=>'gallery','required'=>true]" />
+        <x-form.publishStatus name="category[]" :list='$categories' :value="$selectedCategories" multiple="true" label="gallery category" />
         <x-form.publishStatus :value="$gallery->publishStatus" />
         <x-form.image title="image" :value="$gallery->image" />
-        <x-form.input type="url" :value="$gallery->website" name="website"
-            :option="['placeholder'=>'website','required'=>true]" />
         <x-button-component />
         </form>
     </x-card>

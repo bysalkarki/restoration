@@ -27,6 +27,8 @@ class GalleryStoreRequest extends FormRequest
             'title' => ['string'],
             'image' => ['string'],
             'publishStatus' => ['required'],
+            'category' => ['required'],
+            'category.*' => ['required', 'exists:categories,id']
         ];
     }
 }

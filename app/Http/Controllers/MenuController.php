@@ -15,7 +15,9 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
-        $menus = Menu::all();
+        $menus = Menu::when($request->keyword, fn ($query) => $query->where('title', 'like', "%$request->keyword%"))
+            ->orderBy('position', 'ASC')
+            ->paginate(10);
 
         return view('menu.index', compact('menus'));
     }
@@ -26,7 +28,8 @@ class MenuController extends Controller
      */
     public function create(Request $request)
     {
-        return view('menu.create');
+        $menu = new Menu();
+        return view('menu.form', compact('menu'));
     }
 
     /**
@@ -35,11 +38,14 @@ class MenuController extends Controller
      */
     public function store(MenuStoreRequest $request)
     {
-        $menu = Menu::create($request->validated());
-
-        $request->session()->flash('menu.id', $menu->id);
-
-        return redirect()->route('menu.index');
+        try {
+            $menu = Menu::create($request->validated());
+            $request->session()->flash('success', 'Menu Added Successfully');
+            return redirect()->route('menu.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**
@@ -59,7 +65,7 @@ class MenuController extends Controller
      */
     public function edit(Request $request, Menu $menu)
     {
-        return view('menu.edit', compact('menu'));
+        return view('menu.form', compact('menu'));
     }
 
     /**
@@ -69,11 +75,14 @@ class MenuController extends Controller
      */
     public function update(MenuUpdateRequest $request, Menu $menu)
     {
-        $menu->update($request->validated());
-
-        $request->session()->flash('menu.id', $menu->id);
-
-        return redirect()->route('menu.index');
+        try {
+            $menu->update($request->validated());
+            $request->session()->flash('success', $menu->title . ' updated successfully');
+            return redirect()->route('menu.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**

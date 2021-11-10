@@ -27,6 +27,7 @@ class MenuUpdateRequest extends FormRequest
             'title' => ['required', 'string'],
             'position' => ['integer', 'gt:0'],
             'metaTitle' => ['string'],
+            'description' => ['string'],
             'metaDescription' => ['string'],
             'metaKeyphrase' => ['string'],
             'parallexImage' => ['string'],

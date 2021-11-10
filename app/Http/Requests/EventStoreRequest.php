@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EventStoreRequest extends FormRequest
@@ -24,7 +25,24 @@ class EventStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'event' => ['required'],
+            'title' => ['required'],
+            'summary' => ['required'],
+            'description' => ['required'],
+            'image' => ['nullable', 'url'],
+            'date' => ['nullable', 'date'],
+            'publishStatus' => ['required', 'boolean'],
+            'location' => ['nullable'],
+            'venue' => ['nullable'],
+            'slug' => ['required'],
+            'position' => ['nullable'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'slug' => Str::slug(request()->title) . '' . now()->timestamp,
+            'position' => 1,
+        ]);
     }
 }

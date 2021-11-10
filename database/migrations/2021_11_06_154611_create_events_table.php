@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('summary');
+            $table->string('slug')->unique();
             $table->longText('description');
             $table->string('image')->nullable();
             $table->dateTime('date')->nullable();

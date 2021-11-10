@@ -6,7 +6,9 @@ use App\Http\Requests\BlogStoreRequest;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -16,7 +18,10 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $blogs = Blog::select('id', 'title', 'image', 'publishStatus')->latest()->paginate(1);
+        $blogs = Blog::select('id', 'title', 'image', 'publishStatus')
+            ->when($request->keyword, fn ($query) => $query->where('title', 'like', "%$request->keyword%"))
+            ->latest()
+            ->paginate(10);
 
         return view('blog.index', compact('blogs'));
     }
@@ -39,12 +44,15 @@ class BlogController extends Controller
      */
     public function store(BlogStoreRequest $request)
     {
+        DB::beginTransaction();
         try {
-            $blog = Blog::create($request->validated());
-            $blog->sync($request->category);
+            $blog = Blog::create(Arr::except($request->validated(), $request->category));
+            $blog->categories()->sync($request->validated()['category']);
             $request->session()->flash('success', $blog->id);
+            DB::commit();
             return redirect()->route('blog.index');
         } catch (\Throwable $th) {
+            DB::rollBack();
             $request->session()->flash('error', $th->getMessage());
             return back()->withInput();
         }
@@ -80,12 +88,16 @@ class BlogController extends Controller
      */
     public function update(BlogUpdateRequest $request, Blog $blog)
     {
+        DB::beginTransaction();
         try {
-            $blog->update($request->validated());
+            $blog->update(Arr::except($request->validated(), $request->validated['category']));
+            $blog->categories()->sync($request->validated['category']);
             $blog->sync($request->category);
+            DB::commit();
             $request->session()->flash('blog.id', $blog->id);
             return redirect()->route('blog.index');
         } catch (\Throwable $th) {
+            DB::rollBack();
             $request->session()->flash('error', $th->getMessage());
             return back()->withInput();
         }

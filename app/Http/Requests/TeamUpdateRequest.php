@@ -25,14 +25,15 @@ class TeamUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'position' => ['integer', 'gt:0'],
+            'publishStatus' => ['required', 'boolean'],
             'email' => ['email'],
-            'facebook' => ['string'],
-            'contact' => ['string'],
-            'twitter' => ['string'],
-            'instagram' => ['string'],
-            'designation' => ['string'],
-            'description' => ['string'],
+            'image' => ['nullable'],
+            'facebook' => ['string', 'nullable'],
+            'contact' => ['string', 'nullable'],
+            'twitter' => ['string', 'nullable'],
+            'instagram' => ['string', 'nullable'],
+            'designation' => ['string', 'nullable'],
+            'description' => ['string', 'nullable'],
         ];
     }
 }

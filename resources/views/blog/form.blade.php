@@ -20,7 +20,7 @@
         @csrf
         <x-form.input name="title" :value="$blog->title" :option="['placeholder'=>'blog','required'=>true]" />
         <x-form.publishStatus :value="$blog->publishStatus" />
-        <x-form.publishStatus name="category" :list='$category' :value="$selectedCategories" multiple="true" />
+        <x-form.publishStatus name="category[]" :list='$category' :value="$selectedCategories" multiple="true"  label="Blog Category"/>
         <x-form.input name="publishAt" type="date" :value="$blog->publishAt"
             :option="['placeholder'=>'publish At','required'=>true]" />
         <x-form.input name="description" type="textarea" :value="$blog->description"

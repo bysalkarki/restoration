@@ -16,6 +16,7 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('position')->nullable()->default(1);
             $table->string('email')->nullable();
             $table->string('facebook')->nullable();
@@ -23,6 +24,7 @@ class CreateTeamsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->string('designation')->nullable();
+            $table->boolean('publishStatus')->default(true);
             $table->string('description')->nullable();
             $table->timestamps();
         });

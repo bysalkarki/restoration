@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected const TYPE = [
+        'HOME'=>'home', 'ABOUT'=>'about', 'MISSION'=>'mission', 'CONTACT'=>'contact', 'EVENT'=>'event', 'BLOG'=>'blog', 'GALLERY'=>'gallery', 'VIDEO'=>'video'
+    ];
     use HasFactory;
 
     /**
@@ -16,6 +19,8 @@ class Menu extends Model
      */
     protected $fillable = [
         'title',
+        'description',
+        'slug',
         'position',
         'metaTitle',
         'metaDescription',
@@ -39,4 +44,9 @@ class Menu extends Model
         'publishStatus' => 'boolean',
         'published_at' => 'timestamp',
     ];
+
+    public static function getType(): array
+    {
+        return self::TYPE;
+    }
 }

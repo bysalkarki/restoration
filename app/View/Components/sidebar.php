@@ -103,6 +103,62 @@ class sidebar extends Component
                     ]
                 ]
             ],
+            //Events
+            [
+                'title' => 'Event',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('event.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('event.create'),
+                    ]
+                ]
+            ],
+            //Teams
+            [
+                'title' => 'Team',
+                'icon' => 'fas fa-users',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('team.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('team.create'),
+                    ]
+                ]
+            ],
+
+            //GAllery
+            [
+                'title' => 'Gallery',
+                'icon' => 'fas fa-users',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('gallery.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('gallery.create'),
+                    ]
+                ]
+            ],
+            //AppSettings
             [
                 'title' => 'Setting',
                 'icon' => 'fas fa-cog',
