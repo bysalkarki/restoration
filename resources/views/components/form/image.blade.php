@@ -12,13 +12,13 @@
         <input id="{{ $title . 'thumbnail_favicon' }}" class="form-control" type="url" name="{{ $title }}"
             value="{{ old($title, $value) }}">
     </div>
-    <img id="{{ $title . 'holder_favicon' }}" style="margin-top:15px;max-height:100px;">
+    <div id="{{ $title . 'holder_favicon' }}"></div>
 </div>
 
 @push('scripts')
     <script>
-      $(document).ready(function(){
-        $("#{{ $title . 'lfm_favicon' }}").filemanager('image');
-      })
+        $(document).ready(function() {
+            $("#{{ $title . 'lfm_favicon' }}").filemanager('image');
+        })
     </script>
 @endpush
