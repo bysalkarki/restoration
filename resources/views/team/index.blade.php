@@ -17,7 +17,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">No team Data Found</td>
+                    <td colspan="7" class="text-center">No team Data Found</td>
                 </tr>
             @endforelse
         </x-table.table>
