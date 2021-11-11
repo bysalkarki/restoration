@@ -23,3 +23,6 @@
         </x-table.table>
     </x-card>
 @endsection
+@section('breadcrumb')
+    <x-breadcrumb title="gallery"/>
+@endsection

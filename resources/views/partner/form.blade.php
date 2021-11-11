@@ -17,3 +17,6 @@
         </form>
     </x-card>
 @endsection
+@section('breadcrumb')
+    <x-breadcrumb title="partner"/>
+@endsection

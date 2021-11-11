@@ -18,3 +18,7 @@
         </form>
     </x-card>
 @endsection
+
+@section('breadcrumb')
+    <x-breadcrumb title="slider"/>
+@endsection

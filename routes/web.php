@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', function () {
-        return view('admin.layouts.admin');
-    });
+        return view('admin.welcome');
+    })->name('admin.index');
     Route::resource('slider', App\Http\Controllers\SliderController::class);
     Route::resource('video', App\Http\Controllers\VideoController::class);
     Route::resource('blog', App\Http\Controllers\BlogController::class);

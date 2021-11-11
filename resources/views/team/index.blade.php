@@ -23,3 +23,7 @@
         </x-table.table>
     </x-card>
 @endsection
+
+@section('breadcrumb')
+    <x-breadcrumb title="team"/>
+@endsection
