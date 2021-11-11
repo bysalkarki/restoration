@@ -16,9 +16,9 @@
 </div>
 
 @push('scripts')
-    <script src="{{ asset('/vendor/laravel-file-manager/js/stand-alone-button.js') }}"></script>
-
     <script>
+      $(document).ready(function(){
         $("#{{ $title . 'lfm_favicon' }}").filemanager('image');
+      })
     </script>
 @endpush

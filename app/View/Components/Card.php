@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class Card extends Component
 {
     public $title, $footer;
+    public $create;
     /**
      * Create a new component instance.
      *

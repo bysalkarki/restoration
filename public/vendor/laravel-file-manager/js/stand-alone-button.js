@@ -1,3 +1,4 @@
+
 (function( $ ){
 
   $.fn.filemanager = function(type, options) {
