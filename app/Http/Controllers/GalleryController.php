@@ -45,11 +45,11 @@ class GalleryController extends Controller
         try {
             $data = $request->validated();
             $gallery = Gallery::create(Arr::except($data, $data['category']));
-            $request->session()->flash('gallery.id', $gallery->id);
+            $request->session()->flash('success','gallery added successfully');
 
             return redirect()->route('gallery.index');
         } catch (\Throwable $th) {
-            $request->session()->flash('gallery.id', $gallery->id);
+            $request->session()->flash('error','gallery cannot be added ');
             return redirect()->back()->withInput();
         }
     }
@@ -85,7 +85,7 @@ class GalleryController extends Controller
     {
         $gallery->update($request->validated());
 
-        $request->session()->flash('gallery.id', $gallery->id);
+        $request->session()->flash('success','gallery added successfully');
 
         return redirect()->route('gallery.index');
     }

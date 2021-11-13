@@ -1,7 +1,23 @@
-<script>
-    $(document).ready(function() {
-            // Display an info toast with no title
-            toastr.warning('Are you the 6 fingered man?', 'sycces');
-            toastr.error('Are you the 6 fingered man?');
+@if (session('success'))
+    <script>
+        $(document).ready(function() {
+            toastr.success("{{ session('success') }}");
         })
-</script>
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        $(document).ready(function() {
+            toastr.success("{{ session('error') }}");
+        })
+    </script>
+@endif
+
+@if ($errors->any())
+    @foreach ($errors as $error)
+        <script>
+            toastr.error("{{ $error }}");
+        </script>
+    @endforeach
+@endif

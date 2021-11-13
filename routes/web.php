@@ -28,5 +28,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('event', App\Http\Controllers\EventController::class)->except('show');
     Route::resource('team', App\Http\Controllers\TeamController::class)->except('show');
     Route::resource('partner', App\Http\Controllers\PartnerController::class)->except('show');
+    Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
+    Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
 });

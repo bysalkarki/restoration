@@ -196,6 +196,25 @@ class sidebar extends Component
                     ]
                 ]
             ],
+
+              //testimonial
+              [
+                'title' => 'testimonial',
+                'icon' => 'fas fa-quote-left',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('testimonial.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('testimonial.create'),
+                    ]
+                ]
+            ],
             //AppSettings
             [
                 'title' => 'Setting',

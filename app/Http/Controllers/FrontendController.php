@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Partners;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class FrontendController extends Controller
         $data = [
             'sliders' => self::getSliders(),
             'about' => $this->getAbout(),
+            'partners' => $this->getPartners(),
         ];
         return view('front.index', $data);
     }
@@ -25,5 +27,10 @@ class FrontendController extends Controller
     private function getAbout()
     {
         return Menu::where('type', 'ABOUT')->first();
+    }
+
+    private function getPartners()
+    {
+        return Partners::get();
     }
 }
