@@ -15,7 +15,7 @@
 @endif
 
 @if ($errors->any())
-    @foreach ($errors as $error)
+    @foreach ($errors->all() as $error)
         <script>
             toastr.error("{{ $error }}");
         </script>
