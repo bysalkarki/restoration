@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Partners;
 use App\Models\Slider;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -15,6 +16,7 @@ class FrontendController extends Controller
             'sliders' => self::getSliders(),
             'about' => $this->getAbout(),
             'partners' => $this->getPartners(),
+            'testimonials' => $this->getTestimonial()
         ];
         return view('front.index', $data);
     }
@@ -32,5 +34,10 @@ class FrontendController extends Controller
     private function getPartners()
     {
         return Partners::get();
+    }
+
+    private function getTestimonial()
+    {
+        return Testimonial::latest()->get();
     }
 }
