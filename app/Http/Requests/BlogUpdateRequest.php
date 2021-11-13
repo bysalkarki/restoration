@@ -29,6 +29,8 @@ class BlogUpdateRequest extends FormRequest
             'publishAt' => ['required'],
             'publishStatus' => ['required'],
             'image' => ['required', 'string'],
+            'category' => ['required', 'array'],
+            'category.*' => ['required', 'exists:categories,id']
         ];
     }
 }

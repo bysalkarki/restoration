@@ -16,8 +16,23 @@ class AppsettingSeeder extends Seeder
                 'type' => 'text',
             ],
             [
+                'key' => 'country',
+                'value' => 'Nepal',
+                'type' => 'text',
+            ],
+            [
+                'key' => 'favicon',
+                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'type' => 'image',
+            ],
+            [
                 'key' => 'logo',
-                'value' => 'restoration nepal',
+                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'type' => 'image',
+            ],
+            [
+                'key' => 'footerLogo',
+                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
             ],
             [
@@ -61,7 +76,7 @@ class AppsettingSeeder extends Seeder
                 'type' => 'textarea',
             ],
             [
-                'key' => 'location',
+                'key' => 'footerText',
                 'value' => 'restoration Nepal',
                 'type' => 'textarea',
             ]

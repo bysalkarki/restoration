@@ -90,11 +90,10 @@ class BlogController extends Controller
     {
         DB::beginTransaction();
         try {
-            $blog->update(Arr::except($request->validated(), $request->validated['category']));
-            $blog->categories()->sync($request->validated['category']);
-            $blog->sync($request->category);
+            $blog->update(Arr::except($request->validated(), $request->category));
+            $blog->categories()->sync($request->validated()['category']);
             DB::commit();
-            $request->session()->flash('blog.id', $blog->id);
+            $request->session()->flash('success', 'blogUpdated successfully');
             return redirect()->route('blog.index');
         } catch (\Throwable $th) {
             DB::rollBack();

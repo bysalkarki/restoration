@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/responsive.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    @stack('style')
+    <link rel="shortcut icon" href="{{ config('settings.favicon') }}" type="image/x-icon">
+    <link rel="icon" href="{{ config('settings.favicon') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
@@ -128,10 +129,9 @@
         <footer class="main-footer style-two" style="background-image: url(images/bg3.jpg)">
             <div class="auto-container">
                 <div class="logo">
-                    <a href="index.html"><img src="images/footer-logo.png" alt="" /></a>
+                    <a href="{{ route('index') }}"><img src="{{ config('settings.footerLogo') }}" alt="" /></a>
                 </div>
-                <div class="text">We bring the years, global experience, and stamina to guide our <br>
-                    clients through new and often disruptive realities.</div>
+                <div class="text">{{ config('settings.footerText') }}</div>
                 <ul class="footer-list">
                     <li><a href="#">Privacy Statement</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
@@ -178,6 +178,7 @@
     <script src="{{ asset('front/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('front/js/script.js') }}"></script>
     <script src="{{ asset('front/js/color-settings.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

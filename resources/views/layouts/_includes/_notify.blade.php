@@ -9,7 +9,7 @@
 @if (session('error'))
     <script>
         $(document).ready(function() {
-            toastr.success("{{ session('error') }}");
+            toastr.error("{{ session('error') }}");
         })
     </script>
 @endif

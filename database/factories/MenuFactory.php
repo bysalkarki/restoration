@@ -23,7 +23,8 @@ class MenuFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(4),
+            'title' => $this->faker->word(),
+            'slug' => $this->faker->slug(),
             'position' => $this->faker->randomNumber(),
             'metaTitle' => $this->faker->word,
             'metaDescription' => $this->faker->text,
@@ -32,7 +33,7 @@ class MenuFactory extends Factory
             'featuredImage' => $this->faker->word,
             'publishStatus' => $this->faker->boolean,
             'published_at' => $this->faker->dateTime(),
-            'type' => $this->faker->word,
+            'type' => array_rand((new Menu())->getType()),
             'externalUrl' => $this->faker->word,
         ];
     }

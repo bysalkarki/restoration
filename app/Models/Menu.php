@@ -2,15 +2,24 @@
 
 namespace App\Models;
 
+use App\Traits\PublishedTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+
+    use HasFactory, PublishedTrait;
     protected const TYPE = [
-        'HOME'=>'home', 'ABOUT'=>'about', 'MISSION'=>'mission', 'CONTACT'=>'contact', 'EVENT'=>'event', 'BLOG'=>'blog', 'GALLERY'=>'gallery', 'VIDEO'=>'video'
+        'HOME' => 'home',
+        'ABOUT' => 'about',
+        'MISSION' => 'mission',
+        'CONTACT' => 'contact',
+        'EVENT' => 'event',
+        'BLOG' => 'blog',
+        'GALLERY' => 'gallery',
+        'VIDEO' => 'video'
     ];
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -48,5 +57,10 @@ class Menu extends Model
     public static function getType(): array
     {
         return self::TYPE;
+    }
+
+    public function getRouteAttribute()
+    {
+        return strtolower($this->type);
     }
 }

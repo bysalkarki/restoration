@@ -2,10 +2,12 @@
 
 namespace App\View\Components\front;
 
+use App\Models\Menu;
 use Illuminate\View\Component;
 
 class navbar extends Component
 {
+    public $navbars;
     /**
      * Create a new component instance.
      *
@@ -13,9 +15,12 @@ class navbar extends Component
      */
     public function __construct()
     {
-        //
+        $this->navbars = $this->getMenus();
     }
-
+    private function getMenus()
+    {
+        return Menu::published()->orderBy('position')->get();
+    }
     /**
      * Get the view / contents that represent the component.
      *

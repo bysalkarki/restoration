@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Trait\PublishedTrait;
+use App\Traits\PublishedTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

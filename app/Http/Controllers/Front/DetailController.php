@@ -13,7 +13,17 @@ class DetailController extends Controller
 
     public function blog()
     {
-        return view('front.blog');
+        $data = [
+            'blogs' => Blog::latest('publishAt')->published()->paginate(8),
+        ];
+        return view('front.blog', $data);
+    }
+
+    public function blogDetail($slug)
+    {
+        $blog =  Blog::published()->where('slug', $slug)->firstorfail();
+        $blog->increment('view');
+        return view('front.blogDetails', compact('blog'));
     }
 
     public function contact()
