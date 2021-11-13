@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
+    Route::resource('user', UserController::class);
 });

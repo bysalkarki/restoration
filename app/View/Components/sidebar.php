@@ -178,8 +178,8 @@ class sidebar extends Component
                 ]
             ],
 
-              //Video
-              [
+            //Video
+            [
                 'title' => 'video',
                 'icon' => 'fas fa-video',
                 'href' => '#',
@@ -197,8 +197,8 @@ class sidebar extends Component
                 ]
             ],
 
-              //testimonial
-              [
+            //testimonial
+            [
                 'title' => 'testimonial',
                 'icon' => 'fas fa-quote-left',
                 'href' => '#',
@@ -212,6 +212,24 @@ class sidebar extends Component
                         'title' => 'create',
                         'icon' => 'fas fa-store ',
                         'href' => route('testimonial.create'),
+                    ]
+                ]
+            ],
+            //User
+            [
+                'title' => 'user',
+                'icon' => 'fas fa-user',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('user.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('user.create'),
                     ]
                 ]
             ],
