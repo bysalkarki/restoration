@@ -10,38 +10,29 @@
             <div class="row clearfix">
 
                 <!-- News Block -->
-                <div class="news-block col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <a href="news-detail.html"><img src="images/news-1.jpg" alt="" /></a>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="post-info">
-                                <li>Dec 20, 2020</li>
-                                <li><span class="icon fa fa-eye"></span>130.5k</li>
-                                <li><span class="icon fa fa-comment"></span>2</li>
-                            </ul>
-                            <h4><a href="news-detail.html">We would love to share a similar experience</a></h4>
+                @foreach ($blogs as $blog)
+                    <div class="news-block col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-box wow @if ($loop->first)
+                           {{ 'fadeInLeft' }}
+                            @else
+                           {{ 'fadeInRight' }}
+                        @endif"
+                            data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="image">
+                                <a href="news-detail.html"><img src="{{ $blog->image }}" alt="" /></a>
+                            </div>
+                            <div class="lower-content">
+                                <ul class="post-info">
+                                    <li>{{ $blog->publishAt->format('M d, Y') }}Dec 20, 2020</li>
+                                    <li><span class="icon fa fa-eye"></span>{{ $blog->view }}</li>
+                                </ul>
+                                <h4><a href="news-detail.html">{{ $blog->title }}</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <!-- News Block -->
-                <div class="news-block col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <a href="news-detail.html"><img src="images/news-2.jpg" alt="" /></a>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="post-info">
-                                <li>Dec 20, 2020</li>
-                                <li><span class="icon fa fa-eye"></span>130.5k</li>
-                                <li><span class="icon fa fa-comment"></span>2</li>
-                            </ul>
-                            <h4><a href="news-detail.html">We would love to share a similar experience</a></h4>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>

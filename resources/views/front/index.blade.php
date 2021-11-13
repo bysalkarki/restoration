@@ -7,7 +7,9 @@
     @include('front.index._project')
     @include('front.index._progress')
     @include('front.index._pricing')
+    @include('front.index._counter')
     @include('front.index._partners')
     @include('front.index._blog')
     @include('front.index._testimonial')
+    @include('front.index._contact')
 @endsection

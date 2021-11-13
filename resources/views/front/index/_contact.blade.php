@@ -17,9 +17,9 @@
             <div class="info-column col-lg-5 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <ul class="list">
-                        <li>30 Commercial Road new <br> Fratton, Australia</li>
-                        <li><a href="tel:+01473-5538561">+01473 5538561</a> <br> <a
-                                href="mailto:username@domain.com">username@domain.com</a></li>
+                        <li class="text-capitalize">{{ config('settings.address') }}</li>
+                        <li><a href="tel:{{ config('settings.phone') }}">{{ config('settings.phone') }}</a> <br> <a
+                                href="mailto:{{ config('settings.email') }}">{{ config('settings.email') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,7 @@
 
                     <!-- Appointment Form -->
                     <div class="appointment-form">
-                        <form method="post" action="contact.html">
+                        <form method="post" action="">
 
                             <div class="form-group">
                                 <input type="text" name="username" placeholder="Complate Name" required="">
