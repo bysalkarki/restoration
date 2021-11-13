@@ -12,6 +12,7 @@
                     <x-table.td>{{ $user->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>
                         <x-table.edit route="user.edit" :value="$user->id" />
+                        <x-table.edit route="resetPasswordView" :value="$user->id"  icon='fas fa-lock  '  />
                     </x-table.td>
                 </tr>
             @empty

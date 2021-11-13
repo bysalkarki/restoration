@@ -13,9 +13,18 @@
         <x-form.input name="email" :value="$user->email" type="email" :option="['placeholder'=>'email','required'=>true]" />
         <x-form.image title="image" :value="$user->image" />
         @if (!$user->id)
-            <x-form.input name="password" value="" type="password" :option="['placeholder'=>'password','required'=>true]" />
-            <x-form.input name="password_confirmation" value="" type="password"
-                :option="['placeholder'=>'password','required'=>true]" />
+        <div class="form-group">
+            {!! Form::label('password', 'password', ['class' => 'text-capitalize']) !!}
+            {!! Form::password('password', ['class' => 'form-control', 'id' => 'password', 'required' => true]) !!}
+            @error('password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password_confirmation', 'password_confirmation', ['class' => 'text-capitalize']) !!}
+            {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'password_confirmation', 'required' => true]) !!}
+        </div>
         @endif
 
         <x-button-component />

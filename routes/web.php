@@ -33,4 +33,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
     Route::resource('user', UserController::class);
+
+    Route::prefix('user-password')->group(function () {
+        Route::get('/{id}', [UserController::class, 'resetPasswordView'])->name('resetPasswordView');
+        Route::patch('/{id}', [UserController::class, 'resetPassword'])->name('resetPassword');
+    });
 });

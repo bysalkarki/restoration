@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Fortify\CreateNewUser;
+use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\Partners;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -105,5 +107,24 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function resetPasswordView($id)
+    {
+        $user = User::findorfail($id);
+        return view('user.passwordreset', compact('user'));
+    }
+
+    public function resetPassword(Request $request, $id)
+    {
+        $user = User::findorfail($id);
+        try {
+            (new ResetUserPassword())->reset($user, $request->all());
+            session()->flash('success', $user->name . 'password updated Successfully');
+            return redirect()->route('user.show', $user->id);
+        } catch (\Throwable $th) {
+            session()->flash('error', 'user cannot be updated');
+            return back()->withInput();
+        }
     }
 }
