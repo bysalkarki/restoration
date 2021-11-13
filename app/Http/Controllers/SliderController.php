@@ -27,7 +27,7 @@ class SliderController extends Controller
     public function create(Request $request)
     {
         $slider = new Slider();
-        return view('slider.form',compact('slider'));
+        return view('slider.form', compact('slider'));
     }
 
     /**
@@ -36,11 +36,16 @@ class SliderController extends Controller
      */
     public function store(SliderStoreRequest $request)
     {
-        $slider = Slider::create($request->validated());
+        try {
+            $slider = Slider::create($request->validated());
 
-        $request->session()->flash('slider.id', $slider->id);
+            $request->session()->flash('success', 'slider created successfully');
 
-        return redirect()->route('slider.index');
+            return redirect()->route('slider.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**
@@ -70,11 +75,14 @@ class SliderController extends Controller
      */
     public function update(SliderUpdateRequest $request, Slider $slider)
     {
-        $slider->update($request->validated());
-
-        $request->session()->flash('slider.id', $slider->id);
-
-        return redirect()->route('slider.index');
+        try {
+            $slider->update($request->validated());
+            $request->session()->flash('success', 'slider created successfully');
+            return redirect()->route('slider.index');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', $th->getMessage());
+            return back()->withInput();
+        }
     }
 
     /**
@@ -85,7 +93,6 @@ class SliderController extends Controller
     public function destroy(Request $request, Slider $slider)
     {
         $slider->delete();
-
         return redirect()->route('slider.index');
     }
 }

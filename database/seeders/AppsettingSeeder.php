@@ -16,6 +16,11 @@ class AppsettingSeeder extends Seeder
                 'type' => 'text',
             ],
             [
+                'key' => 'address',
+                'value' => 'restoration nepal',
+                'type' => 'text',
+            ],
+            [
                 'key' => 'phone',
                 'value' => '002400',
                 'type' => 'text',
