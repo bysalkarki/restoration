@@ -16,6 +16,11 @@ class AppsettingSeeder extends Seeder
                 'type' => 'text',
             ],
             [
+                'key' => 'logo',
+                'value' => 'restoration nepal',
+                'type' => 'image',
+            ],
+            [
                 'key' => 'address',
                 'value' => 'restoration nepal',
                 'type' => 'text',
@@ -32,22 +37,22 @@ class AppsettingSeeder extends Seeder
             ],
             [
                 'key' => 'facebook',
-                'value' => 'www.facebook.com',
+                'value' => 'https://www.facebook.com',
                 'type' => 'url',
             ],
             [
                 'key' => 'twitter',
-                'value' => 'www.twitter.com',
+                'value' => 'https://www.twitter.com',
                 'type' => 'url',
             ],
             [
                 'key' => 'instagram',
-                'value' => 'www.instagram.com',
+                'value' => 'https://www.instagram.com',
                 'type' => 'url',
             ],
             [
                 'key' => 'youtube',
-                'value' => 'www.youtube.com',
+                'value' => 'https://www.youtube.com',
                 'type' => 'url',
             ],
             [
@@ -69,6 +74,7 @@ class AppsettingSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('appsettings')->truncate();
         DB::table('appsettings')->insert($this->getKeyValues());
     }
 }

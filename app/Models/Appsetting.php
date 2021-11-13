@@ -28,4 +28,14 @@ class Appsetting extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+    public static function set($key, $value = null)
+    {
+        $setting = new self();
+        $entry = $setting->where('key', $key)->first();
+        if (!$entry) {
+            return null;
+        }
+        $entry->value = $value;
+        $entry->save();
+    }
 }
