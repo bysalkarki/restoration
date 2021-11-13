@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="gallery" :footer="$galleries->links()">
+    <x-card title="gallery" :footer="$galleries->links()"  create='gallery.create'>
         <x-table.table :headers='["#","title","image","publish status","date","action"]'>
             @forelse ($galleries as $key=>$gallery)
                 <tr>

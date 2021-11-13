@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="menu" :footer="$menus->links()">
+    <x-card title="menu" :footer="$menus->links()" create='menu.create'>
         <x-table.table :headers='["#","title","image","publish status","type","action"]'>
             @forelse ($menus as $key=>$menu)
                 <tr>
@@ -9,7 +9,7 @@
                     <x-table.td>{{ $menu->title }}</x-table.td>
                     <x-table.td><img src="{{ $menu->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $menu->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
-                    <x-table.td>{{ $menu->type}}</x-table.td>
+                    <x-table.td>{{ $menu->type }}</x-table.td>
                     <x-table.td>
                         <x-table.edit route="menu.edit" :value="$menu->id" />
                     </x-table.td>
@@ -24,5 +24,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="menu"/>
+    <x-breadcrumb title="menu" />
 @endsection

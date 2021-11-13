@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="user" :footer="$users->links()">
+    <x-card title="user" :footer="$users->links()" create='user.create'>
         <x-table.table :headers='["#","name","title","image","publish status","action"]'>
             @forelse ($users as $key=>$user)
                 <tr>
@@ -12,7 +12,7 @@
                     <x-table.td>{{ $user->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>
                         <x-table.edit route="user.edit" :value="$user->id" />
-                        <x-table.edit route="resetPasswordView" :value="$user->id"  icon='fas fa-lock  '  />
+                        <x-table.edit route="resetPasswordView" :value="$user->id" icon='fas fa-lock  ' />
                     </x-table.td>
                 </tr>
             @empty

@@ -1,9 +1,12 @@
 <div class="card">
-
-
     <div class="card-header">
-        <h3 class="card-title text-capitalize">{{ $title }}</h3>
+        <h3 class="card-title text-capitalize">{!! $title !!}</h3>
         <div class="card-tools">
+            @if ($create)
+                <a name="" id="" class="btn btn-sm btn-primary" href="{{ route($create) }}" role="button">
+                    <i class="fas fa-plus"> Create</i>
+                </a>
+            @endif
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
             </button>

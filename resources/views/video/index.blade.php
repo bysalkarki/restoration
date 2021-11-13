@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="video" :footer="$videos->links()">
+    <x-card title="video" :footer="$videos->links()" create='video.create'>
         <x-table.table :headers='["#","title","image","publish status","action"]'>
             @forelse ($videos as $key=>$video)
                 <tr>
@@ -24,5 +24,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="video"/>
+    <x-breadcrumb title="video" />
 @endsection

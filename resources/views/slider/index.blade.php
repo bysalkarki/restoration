@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="Slider" footer="Slider">
+    <x-card title="" footer="Slider" create='slider.create'>
         <x-table.table :headers='["#","title","image","publish status","action"]'>
             @forelse ($sliders as $key=>$slider)
                 <tr>
@@ -23,5 +23,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="slider"/>
+    <x-breadcrumb title="slider" />
 @endsection

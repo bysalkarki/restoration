@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="event" :footer="$events->links()">
+    <x-card title="event" :footer="$events->links()"  create='event.create'>
         <x-table.table :headers='["#","title","image","publish status","date","action"]'>
             @forelse ($events as $key=>$event)
                 <tr>

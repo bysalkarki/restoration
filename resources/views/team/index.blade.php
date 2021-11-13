@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="team" :footer="$teams->links()">
+    <x-card title="team" :footer="$teams->links()"  create='team.create'>
         <x-table.table :headers='["#","designation","name","image","email","publish status","action"]'>
             @forelse ($teams as $key=>$team)
                 <tr>
