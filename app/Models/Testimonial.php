@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Trait\PublishedTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Testimonial extends Model
 {
-    use HasFactory;
+    use HasFactory, PublishedTrait;
 
     /**
      * The attributes that are mass assignable.
