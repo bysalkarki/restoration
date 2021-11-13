@@ -29,6 +29,9 @@ class TestimonialStoreRequest extends FormRequest
             'description' => ['required', 'string', 'max:800'],
             'name' => ['required', 'string', 'max:400'],
             'company' => ['required', 'string', 'max:400'],
+
         ];
     }
+
+
 }

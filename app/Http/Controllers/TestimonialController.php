@@ -17,7 +17,7 @@ class TestimonialController extends Controller
     {
         $testimonials = Testimonial::when($request->keyword, fn ($query) => $query->where('title', 'like', "%$request->keyword%")
             ->orWhere('name', 'like', "%$request->keyword%"))
-            ->orderBy('position', 'ASC')
+            ->latest()
             ->paginate(10);
 
         return view('testimonial.index', compact('testimonials'));

@@ -12,7 +12,9 @@
         <input id="{{ $title . 'thumbnail_favicon' }}" class="form-control" type="url" name="{{ $title }}"
             value="{{ old($title, $value) }}">
     </div>
-    <div id="{{ $title . 'holder_favicon' }}"></div>
+    <div id="{{ $title . 'holder_favicon' }}">
+        <img src="{{ $value }}">
+    </div>
 </div>
 
 @push('scripts')
