@@ -21,6 +21,7 @@
         <x-form.input type="url" :value="$team->facebook" name="facebook" :option="['placeholder'=>'facebook']" />
         <x-form.input type="url" :value="$team->twitter" name="twitter" :option="['placeholder'=>'twitter']" />
         <x-form.input type="url" :value="$team->instagram" name="instagram" :option="['placeholder'=>'instagram']" />
+        <x-form.input type="url" :value="$team->linkedin" name="linkedin" :option="['placeholder'=>'linkedin']" />
         <x-form.input type="text" :value="$team->contact" name="contact" :option="['placeholder'=>'contact']" />
         <x-button-component />
         </form>
@@ -28,5 +29,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="team"/>
+    <x-breadcrumb title="team" />
 @endsection
