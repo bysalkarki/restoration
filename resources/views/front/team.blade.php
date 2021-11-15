@@ -33,169 +33,19 @@ $data = ['fadeInLeft', 'fadeInUp', 'fadeInRight'];
                                             <li><a class="fab fa-facebook-f" href="{{ $team->facebook }}"></a></li>
                                             <li><a class="fab fa-twitter" href="{{ $team->twitter }}"></a></li>
                                             <li><a class="fab fa-instagram" href="{{ $team->instagram }}"></a></li>
-                                            <li><a class="fab fa-linkedin" href="{{$team->linkedin}}"></a></li>
+                                            <li><a class="fab fa-linkedin" href="{{ $team->linkedin }}"></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <!--Lower Content-->
                             <div class="lower-content">
-                                <h5><a href="team-detail.html">Richard Will.</a></h5>
-                                <div class="designation">CEO</div>
+                                <h5><a href="team-detail.html">{{ $team->name }}</a></h5>
+                                <div class="designation">{{$team->designation}}</div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-                <!-- Team Member -->
-                <div class="team-member col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <!--Image Box-->
-                        <div class="image-box">
-                            <!--Image-->
-                            <figure class="image">
-                                <img src="images/team-5.jpg" alt="" />
-                            </figure>
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="inner">
-                                    <!--Social Icon One-->
-                                    <ul class="social-icon-one">
-                                        <li><a class="fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="fab fa-twitter" href="#"></a></li>
-                                        <li><a class="fab fa-instagram" href="#"></a></li>
-                                        <li><a class="fab fa-linkedin" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Lower Content-->
-                        <div class="lower-content">
-                            <h5><a href="team-detail.html">Roy Albert.M</a></h5>
-                            <div class="designation">Senior Manager</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member -->
-                <div class="team-member col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <!--Image Box-->
-                        <div class="image-box">
-                            <!--Image-->
-                            <figure class="image">
-                                <img src="images/team-2.jpg" alt="" />
-                            </figure>
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="inner">
-                                    <!--Social Icon One-->
-                                    <ul class="social-icon-one">
-                                        <li><a class="fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="fab fa-twitter" href="#"></a></li>
-                                        <li><a class="fab fa-instagram" href="#"></a></li>
-                                        <li><a class="fab fa-linkedin" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Lower Content-->
-                        <div class="lower-content">
-                            <h5><a href="team-detail.html">Roy Albert.</a></h5>
-                            <div class="designation">Manager</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member -->
-                <div class="team-member col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <!--Image Box-->
-                        <div class="image-box">
-                            <!--Image-->
-                            <figure class="image">
-                                <img src="images/team-3.jpg" alt="" />
-                            </figure>
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="inner">
-                                    <!--Social Icon One-->
-                                    <ul class="social-icon-one">
-                                        <li><a class="fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="fab fa-twitter" href="#"></a></li>
-                                        <li><a class="fab fa-instagram" href="#"></a></li>
-                                        <li><a class="fab fa-linkedin" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Lower Content-->
-                        <div class="lower-content">
-                            <h5><a href="team-detail.html">James Dip.</a></h5>
-                            <div class="designation">Market Manager</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member -->
-                <div class="team-member col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <!--Image Box-->
-                        <div class="image-box">
-                            <!--Image-->
-                            <figure class="image">
-                                <img src="images/team-4.jpg" alt="" />
-                            </figure>
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="inner">
-                                    <!--Social Icon One-->
-                                    <ul class="social-icon-one">
-                                        <li><a class="fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="fab fa-twitter" href="#"></a></li>
-                                        <li><a class="fab fa-instagram" href="#"></a></li>
-                                        <li><a class="fab fa-linkedin" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Lower Content-->
-                        <div class="lower-content">
-                            <h5><a href="team-detail.html">Richard Will.</a></h5>
-                            <div class="designation">Auditor</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Member -->
-                <div class="team-member col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <!--Image Box-->
-                        <div class="image-box">
-                            <!--Image-->
-                            <figure class="image">
-                                <img src="images/team-6.jpg" alt="" />
-                            </figure>
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="inner">
-                                    <!--Social Icon One-->
-                                    <ul class="social-icon-one">
-                                        <li><a class="fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="fab fa-twitter" href="#"></a></li>
-                                        <li><a class="fab fa-instagram" href="#"></a></li>
-                                        <li><a class="fab fa-linkedin" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Lower Content-->
-                        <div class="lower-content">
-                            <h5><a href="team-detail.html">James Dip.</a></h5>
-                            <div class="designation">Employee</div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 

@@ -26,6 +26,7 @@ class VideoUpdateRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'description' => ['string'],
+            'isFeatured' => ['boolean'],
             'image' => ['string'],
             'url' => ['required', 'string'],
         ];

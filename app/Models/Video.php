@@ -19,6 +19,7 @@ class Video extends Model
         'description',
         'image',
         'url',
+        'isFeatured',
     ];
 
     /**
@@ -28,5 +29,6 @@ class Video extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'isFeatured' => 'boolean'
     ];
 }

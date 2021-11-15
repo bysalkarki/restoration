@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class TeamStoreRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class TeamStoreRequest extends FormRequest
             'position' => ['integer', 'gt:0'],
             'publishStatus' => ['required', 'boolean'],
             'email' => ['email'],
-            'image'=>['nullable'],
+            'image' => ['nullable'],
             'facebook' => ['string', 'nullable'],
             'contact' => ['string', 'nullable'],
             'twitter' => ['string', 'nullable'],
@@ -43,6 +44,7 @@ class TeamStoreRequest extends FormRequest
     {
         $this->merge([
             'position' => 1,
+            'username' => Str::slug(request()->name).Str::random(2),
         ]);
     }
 }

@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\Partners;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -22,6 +23,7 @@ class FrontendController extends Controller
             'testimonials' => $this->getTestimonial(),
             'blogs' => $this->getBlog(),
             'notices' => $this->getNotice(),
+            'featureVideo' => $this->getFeatureVideo(),
         ];
         return view('front.index', $data);
     }
@@ -59,5 +61,9 @@ class FrontendController extends Controller
     private function getFeatures()
     {
         return Extra::latest()->limit(3)->get();
+    }
+
+    private function getFeatureVideo(){
+        return Video::where('isFeatured',true)->latest()->first();
     }
 }

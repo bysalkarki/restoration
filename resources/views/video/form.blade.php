@@ -15,11 +15,12 @@
         <x-form.image title="image" :value="$video->image" />
         <x-form.input type="url" :value="$video->url" name="url" :option="['placeholder'=>'Video URL']" />
         <x-form.publishStatus :value="$video->publishStatus" />
+        <x-form.publishStatus name="isFeatured" :value="$video->isFeatured" />
         <x-button-component />
         </form>
     </x-card>
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="video"/>
+    <x-breadcrumb title="video" />
 @endsection

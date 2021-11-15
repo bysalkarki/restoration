@@ -18,6 +18,7 @@ class Team extends Model
     protected $fillable = [
         'publishStatus',
         'name',
+        'username',
         'position',
         'email',
         'facebook',

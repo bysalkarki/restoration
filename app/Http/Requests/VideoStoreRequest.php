@@ -27,7 +27,9 @@ class VideoStoreRequest extends FormRequest
             'title' => ['required', 'string'],
             'description' => ['string'],
             'image' => ['string'],
+            'isFeatured'=>['boolean'],
             'url' => ['required', 'string'],
         ];
     }
 }
+
