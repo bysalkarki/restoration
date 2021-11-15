@@ -18,6 +18,7 @@ class CreateExtrasTable extends Migration
             $table->string('title', 400);
             $table->string('image', 400)->nullable();
             $table->string('description', 800);
+            $table->boolean('publishStatus')->default(true);
             $table->timestamps();
         });
     }

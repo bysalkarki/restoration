@@ -31,6 +31,7 @@ class Testimonial extends Model
         'description',
         'name',
         'company',
+        'publishStatus',
     ];
 
     /**

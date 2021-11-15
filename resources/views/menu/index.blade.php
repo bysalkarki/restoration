@@ -11,7 +11,10 @@
                     <x-table.td>{{ $menu->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>{{ $menu->type }}</x-table.td>
                     <x-table.td>
-                        <x-table.edit route="menu.edit" :value="$menu->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="menu.edit" :value="$menu->id" />
+                            <x-table.delete route="menu.destroy" :value="$menu->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty

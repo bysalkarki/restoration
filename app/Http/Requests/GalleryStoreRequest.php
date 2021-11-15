@@ -25,10 +25,18 @@ class GalleryStoreRequest extends FormRequest
     {
         return [
             'title' => ['string'],
-            'image' => ['string'],
+            'image' => ['array'],
+            'image.*' => ['required', 'string'],
             'publishStatus' => ['required'],
             'category' => ['required'],
             'category.*' => ['required', 'exists:categories,id']
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'image' => explode(',', request()->image),
+        ]);
     }
 }

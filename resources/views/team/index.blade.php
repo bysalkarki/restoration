@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="team" :footer="$teams->links()"  create='team.create'>
+    <x-card title="team" :footer="$teams->links()" create='team.create'>
         <x-table.table :headers='["#","designation","name","image","email","publish status","action"]'>
             @forelse ($teams as $key=>$team)
                 <tr>
@@ -12,7 +12,10 @@
                     <x-table.td>{{ $team->email }}</x-table.td>
                     <x-table.td>{{ $team->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>
-                        <x-table.edit route="team.edit" :value="$team->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="team.edit" :value="$team->id" />
+                            <x-table.delete route="team.destroy" :value="$team->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty
@@ -25,5 +28,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="team"/>
+    <x-breadcrumb title="team" />
 @endsection

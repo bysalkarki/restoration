@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('description', 800);
             $table->string('name', 400);
             $table->string('company', 400);
+            $table->boolean('publishStatus')->default(true);
             $table->timestamps();
         });
     }

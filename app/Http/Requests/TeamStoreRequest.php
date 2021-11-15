@@ -32,6 +32,7 @@ class TeamStoreRequest extends FormRequest
             'facebook' => ['string', 'nullable'],
             'contact' => ['string', 'nullable'],
             'twitter' => ['string', 'nullable'],
+            'linkedin' => ['string', 'nullable'],
             'instagram' => ['string', 'nullable'],
             'designation' => ['string', 'nullable'],
             'description' => ['string', 'nullable'],

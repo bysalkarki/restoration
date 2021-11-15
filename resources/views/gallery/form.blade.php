@@ -9,7 +9,7 @@
                 <form action="{{ route('gallery.store') }}" method="POST">
         @endif
         @csrf
-        <x-form.input name="name" :value="$gallery->name" :option="['placeholder'=>'gallery','required'=>true]" />
+        <x-form.input name="title" :value="$gallery->title" :option="['placeholder'=>'gallery','required'=>true]" />
         <x-form.publishStatus name="category[]" :list='$categories' :value="$selectedCategories" multiple="true" label="gallery category" />
         <x-form.publishStatus :value="$gallery->publishStatus" />
         <x-form.image title="image" :value="$gallery->image" />

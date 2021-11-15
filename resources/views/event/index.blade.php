@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="event" :footer="$events->links()"  create='event.create'>
+    <x-card title="event" :footer="$events->links()" create='event.create'>
         <x-table.table :headers='["#","title","image","publish status","date","action"]'>
             @forelse ($events as $key=>$event)
                 <tr>
@@ -9,10 +9,13 @@
                     <x-table.td>{{ $event->title }}</x-table.td>
                     <x-table.td><img src="{{ $event->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $event->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
-                    <x-table.td>{{ $event->date}}</x-table.td>
+                    <x-table.td>{{ $event->date }}</x-table.td>
 
                     <x-table.td>
-                        <x-table.edit route="event.edit" :value="$event->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="event.edit" :value="$event->id" />
+                            <x-table.delete route="event.destroy" :value="$event->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty
@@ -25,5 +28,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="event"/>
+    <x-breadcrumb title="event" />
 @endsection

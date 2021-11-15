@@ -10,8 +10,11 @@
                     <x-table.td>{{ $category->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>{{ $category->type }}</x-table.td>
 
-                    <x-table.td>
-                        <x-table.edit route="category.edit" :value="$category->id" />
+                    <x-table.td class="btn-group">
+                        <div class="btn-group">
+                            <x-table.edit route="category.edit" :value="$category->id" />
+                            <x-table.delete route="category.destroy" :value="$category->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty

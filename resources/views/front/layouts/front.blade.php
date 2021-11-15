@@ -67,8 +67,8 @@
                     <div class="inner-container clearfix">
 
                         <div class="pull-left logo-box">
-                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt=""
-                                        title=""></a></div>
+                            <div class="logo"><a href="{{ route('index') }}"><img
+                                        src="{{ config('settings.logo') }}" alt="" title=""></a></div>
                         </div>
 
                         <x-front.navbar />
@@ -82,7 +82,8 @@
                 <div class="auto-container clearfix">
                     <!--Logo-->
                     <div class="logo pull-left">
-                        <a href="index.html" title=""><img src="images/logo-small.png" alt="" title=""></a>
+                        <a href="{{ route('index') }}" title=""><img src="{{ config('settings.logo') }}" alt=""
+                                title="{{ config('settings.name') }}"></a>
                     </div>
                     <!--Right Col-->
                     <div class="pull-right">
@@ -115,7 +116,8 @@
                 <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
 
                 <nav class="menu-box">
-                    <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a>
+                    <div class="nav-logo"><a href="{{ route('index') }}"><img
+                                src="{{ config('settings.logo') }}" alt="" title=""></a>
                     </div>
                     <div class="menu-outer">
                         <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -137,7 +139,9 @@
                     <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Sitemap</a></li>
                 </ul>
-                <div class="copyright">&copy; Copyright 2021 <a href="index.html">Uricko.</a> All Rights Reserved.
+                <div class="copyright">&copy; Copyright {{now()->format('Y')}} <a
+                        href="{{ route('index') }}">{{ config('settings.name') }}.</a> All Rights
+                    Reserved.
                 </div>
             </div>
         </footer>

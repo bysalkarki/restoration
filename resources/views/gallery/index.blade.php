@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="gallery" :footer="$galleries->links()"  create='gallery.create'>
+    <x-card title="gallery" :footer="$galleries->links()" create='gallery.create'>
         <x-table.table :headers='["#","title","image","publish status","date","action"]'>
             @forelse ($galleries as $key=>$gallery)
                 <tr>
@@ -9,10 +9,13 @@
                     <x-table.td>{{ $gallery->title }}</x-table.td>
                     <x-table.td><img src="{{ $gallery->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $gallery->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
-                    <x-table.td>{{ $gallery->date}}</x-table.td>
+                    <x-table.td>{{ $gallery->created_at->format('d M ,Y') }}</x-table.td>
 
                     <x-table.td>
-                        <x-table.edit route="gallery.edit" :value="$gallery->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="gallery.edit" :value="$gallery->id" />
+                            <x-table.delete route="gallery.destroy" :value="$gallery->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty
@@ -24,5 +27,5 @@
     </x-card>
 @endsection
 @section('breadcrumb')
-    <x-breadcrumb title="gallery"/>
+    <x-breadcrumb title="gallery" />
 @endsection

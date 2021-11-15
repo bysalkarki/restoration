@@ -30,6 +30,13 @@ class sidebar extends Component
     private function sidebarData()
     {
         return [
+            //AppSettings
+            [
+                'title' => 'contact',
+                'icon' => 'fas fa-phone',
+                'href' => route('contact.index'),
+                'child' => null,
+            ],
             [
                 'title' => 'Slider',
                 'icon' => 'fas fa-image',
@@ -44,6 +51,25 @@ class sidebar extends Component
                         'title' => 'create',
                         'icon' => 'fas fa-store ',
                         'href' => route('slider.create'),
+                    ]
+                ]
+            ],
+
+            //features (extra)
+            [
+                'title' => 'feature',
+                'icon' => 'fas fa-image',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('extra.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('extra.create'),
                     ]
                 ]
             ],

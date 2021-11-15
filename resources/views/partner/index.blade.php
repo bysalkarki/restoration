@@ -11,7 +11,10 @@
                     <x-table.td>{{ $partner->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>{{ $partner->website }}</x-table.td>
                     <x-table.td>
-                        <x-table.edit route="partner.edit" :value="$partner->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="partner.edit" :value="$partner->id" />
+                            <x-table.delete route="partner.destroy" :value="$partner->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty

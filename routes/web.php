@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
     Route::resource('user', UserController::class);
-
+    Route::prefix('contact')->name('contact.')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::delete('/{id}', [ContactController::class, 'destroy'])->name('destroy');
+    });
     Route::prefix('user-password')->group(function () {
         Route::get('/{id}', [UserController::class, 'resetPasswordView'])->name('resetPasswordView');
         Route::patch('/{id}', [UserController::class, 'resetPassword'])->name('resetPassword');

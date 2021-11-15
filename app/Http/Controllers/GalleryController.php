@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -42,14 +43,25 @@ class GalleryController extends Controller
      */
     public function store(GalleryStoreRequest $request)
     {
+        DB::beginTransaction();
         try {
             $data = $request->validated();
-            $gallery = Gallery::create(Arr::except($data, $data['category']));
-            $request->session()->flash('success','gallery added successfully');
+            foreach ($data['image'] as $key => $value) {
+                $gallery =   Gallery::create([
+                    'title' => $data['title'],
+                    'image' => $value,
+                    'publishStatus' => $data['publishStatus'],
+                ]);
 
+                $gallery->category()->sync($data['category']);
+            }
+
+            $request->session()->flash('success', 'gallery added successfully');
+            DB::commit();
             return redirect()->route('gallery.index');
         } catch (\Throwable $th) {
-            $request->session()->flash('error','gallery cannot be added ');
+            $request->session()->flash('error', $th->getMessage());
+            DB::rollBack();
             return redirect()->back()->withInput();
         }
     }
@@ -85,7 +97,7 @@ class GalleryController extends Controller
     {
         $gallery->update($request->validated());
 
-        $request->session()->flash('success','gallery added successfully');
+        $request->session()->flash('success', 'gallery added successfully');
 
         return redirect()->route('gallery.index');
     }

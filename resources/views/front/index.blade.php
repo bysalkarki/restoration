@@ -2,7 +2,7 @@
 
 @section('content')
     @include('front.index._slider')
-    @include('front.index._second')
+    @include('front.index._feature')
     @include('front.index._about')
     @include('front.index._project')
     @include('front.index._progress')

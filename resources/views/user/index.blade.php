@@ -11,8 +11,13 @@
                     <x-table.td><img src="{{ $user->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $user->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>
-                        <x-table.edit route="user.edit" :value="$user->id" />
-                        <x-table.edit route="resetPasswordView" :value="$user->id" icon='fas fa-lock  ' />
+                        <div class="btn-group">
+                            <x-table.edit route="user.edit" :value="$user->id" />
+                            <x-table.delete route="user.destroy" :value="$user->id" />
+                            <x-table.edit route="resetPasswordView" :value="$user->id" icon='fas fa-lock  ' />
+
+                        </div>
+
                     </x-table.td>
                 </tr>
             @empty

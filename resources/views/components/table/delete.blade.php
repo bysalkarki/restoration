@@ -1,15 +1,15 @@
-@props(['name', 'value'])
+@props(['route', 'value'])
 
-{!! Form::open(['url' => route($name, $value),'id'=>'deleteForm']) !!}
+{!! Form::open(['url' => route($route, $value), 'class' => 'deleteForm']) !!}
 @csrf
-<button type="submit" class="">Submit</button>
-{!! Form::submit('<i class="fas fa-trash"></i>', ['class' => 'btn btn-primary']) !!}
+@method('DELETE')
+{{ Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger btn-sm mr-2', 'type' => 'submit', 'onClick' => 'deleteForm()']) }}
 {!! Form::close() !!}
 
 @push('scripts')
     <script>
-        $('deleteForm').on('submit',function(){
+        function deleteForm() {
             return confirm('Are you sure??')
-        })
+        }
     </script>
 @endpush

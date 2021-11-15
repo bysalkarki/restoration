@@ -10,7 +10,10 @@
                     <x-table.td><img src="{{ $slider->image }}" height="150px" width="auto" /></x-table.td>
                     <x-table.td>{{ $slider->publishStatus ? 'Active' : 'Inactive' }}</x-table.td>
                     <x-table.td>
-                        <x-table.edit route="slider.edit" :value="$slider->id" />
+                        <div class="btn-group">
+                            <x-table.edit route="slider.edit" :value="$slider->id" />
+                            <x-table.delete route="slider.destroy" :value="$slider->id" />
+                        </div>
                     </x-table.td>
                 </tr>
             @empty

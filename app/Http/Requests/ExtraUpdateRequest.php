@@ -27,6 +27,7 @@ class ExtraUpdateRequest extends FormRequest
             'title' => ['required', 'string', 'max:400'],
             'image' => ['string', 'max:400'],
             'description' => ['required', 'string', 'max:800'],
+            'publishStatus' => ['required', 'boolean']
         ];
     }
 }

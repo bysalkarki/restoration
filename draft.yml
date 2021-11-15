@@ -1,8 +1,7 @@
 models:
-  Testimonial:
+  Pricing:
     title: string:400
     image: string:400 nullable
-    description: string:800
     name: string:400
     company: string:400
 

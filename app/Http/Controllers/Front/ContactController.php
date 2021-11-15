@@ -17,9 +17,9 @@ class ContactController extends Controller
         ]);
         try {
             Contact::create($data);
-            return response()->json($data['name'] . ' Our representative will contact you soon');
+            return response()->json($data['name'] . ' Our representative will contact you soon', 200);
         } catch (\Throwable $th) {
-            return response()->json('message');
+            return response()->json($th->getMessage());
         }
     }
 }

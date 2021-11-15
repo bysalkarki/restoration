@@ -16,7 +16,17 @@
         <img src="{{ $value }}">
     </div>
 </div>
+@push('styles')
+    <style>
+        .form-group img {
+            height: auto;
+            max-width: 150px;
+            box-shadow: inset 5px 1px 1px #000;
 
+        }
+
+    </style>
+@endpush
 @push('scripts')
     <script>
         $(document).ready(function() {

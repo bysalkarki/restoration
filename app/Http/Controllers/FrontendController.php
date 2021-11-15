@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Extra;
 use App\Models\Menu;
 use App\Models\Partners;
 use App\Models\Slider;
@@ -15,6 +16,7 @@ class FrontendController extends Controller
     {
         $data = [
             'sliders' => self::getSliders(),
+            'features' => $this->getFeatures(),
             'about' => $this->getAbout(),
             'partners' => $this->getPartners(),
             'testimonials' => $this->getTestimonial(),
@@ -52,5 +54,10 @@ class FrontendController extends Controller
     private function getNotice()
     {
         return Blog::whereHas('categories', fn ($query) => $query->where('type', 'NOTICE'))->latest()->limit(4)->get();
+    }
+
+    private function getFeatures()
+    {
+        return Extra::latest()->limit(3)->get();
     }
 }

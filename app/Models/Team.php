@@ -26,6 +26,7 @@ class Team extends Model
         'instagram',
         'designation',
         'description',
+        'linkedin',
     ];
 
     /**

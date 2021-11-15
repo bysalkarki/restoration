@@ -25,7 +25,8 @@ class GalleryUpdateRequest extends FormRequest
     {
         return [
             'title' => ['string'],
-            'image' => ['string'],
+            'image' => ['array'],
+            'image.*' => ['required', 'string'],
             'publishStatus' => ['required'],
             'category' => ['required'],
             'category.*' => ['required', 'exists:categories,id']

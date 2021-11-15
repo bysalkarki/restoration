@@ -26,7 +26,8 @@ class ExtraController extends Controller
      */
     public function create(Request $request)
     {
-        return view('extra.create');
+        $extra = new Extra();
+        return view('extra.form', compact('extra'));
     }
 
     /**
@@ -59,7 +60,7 @@ class ExtraController extends Controller
      */
     public function edit(Request $request, Extra $extra)
     {
-        return view('extra.edit', compact('extra'));
+        return view('extra.form', compact('extra'));
     }
 
     /**

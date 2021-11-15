@@ -20,6 +20,7 @@ class CreateTeamsTable extends Migration
             $table->unsignedBigInteger('position')->nullable()->default(1);
             $table->string('email')->nullable();
             $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('contact')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();

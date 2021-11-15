@@ -26,6 +26,7 @@ class Extra extends Model
         'title',
         'image',
         'description',
+        'publishStatus',
     ];
 
     /**

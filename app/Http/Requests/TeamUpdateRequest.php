@@ -30,6 +30,7 @@ class TeamUpdateRequest extends FormRequest
             'image' => ['nullable'],
             'facebook' => ['string', 'nullable'],
             'contact' => ['string', 'nullable'],
+            'linkedin' => ['string', 'nullable'],
             'twitter' => ['string', 'nullable'],
             'instagram' => ['string', 'nullable'],
             'designation' => ['string', 'nullable'],

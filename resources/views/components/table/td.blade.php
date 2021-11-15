@@ -7,4 +7,4 @@ $textAlign =
         'center' => 'text-center',
     ][$align] ?? 'text-center';
 @endphp
-<td class="{{ $textAlign }}"> {{ $slot }}</td>
+<td class="{{ $textAlign }} "> {{ $slot }}</td>

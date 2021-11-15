@@ -34,8 +34,8 @@ class DetailController extends Controller
     public function team()
     {
         $data = [
-            'team' => Team::published()->orderBy('position')->get(),
-            'client' => Partners::published()->get()
+            'teams' => Team::published()->orderBy('position')->get(),
+            'clients' => Partners::published()->get()
         ];
         return view('front.team', $data);
     }
