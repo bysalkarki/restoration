@@ -40,8 +40,8 @@ $data = ['fadeInLeft', 'fadeInUp', 'fadeInRight'];
                             </div>
                             <!--Lower Content-->
                             <div class="lower-content">
-                                <h5><a href="team-detail.html">{{ $team->name }}</a></h5>
-                                <div class="designation">{{$team->designation}}</div>
+                                <h5><a href="{{ route('team.detail', $team->username) }}">{{ $team->name }}</a></h5>
+                                <div class="designation">{{ $team->designation }}</div>
                             </div>
                         </div>
                     </div>
@@ -60,42 +60,12 @@ $data = ['fadeInLeft', 'fadeInUp', 'fadeInRight'];
             <div class="sponsors-outer">
                 <!--Sponsors Carousel-->
                 <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/1.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/2.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/3.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/4.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/1.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/2.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/3.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/4.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/1.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/2.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/3.png" alt=""></a></figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/4.png" alt=""></a></figure>
-                    </li>
+                    @foreach ($partners as $partner)
+                        <li class="slide-item" title="{{ $partner->name }}">
+                            <figure class="image-box"><a href="{{ $partner->website }}"><img
+                                        src="{{ $partner->image }}" alt="{{ $partner->name }}"></a></figure>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 

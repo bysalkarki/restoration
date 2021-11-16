@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\PublishedTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Partners extends Model
 {
-    use HasFactory;
+    use HasFactory, PublishedTrait;
 
     /**
      * The attributes that are mass assignable.

@@ -30,7 +30,7 @@ class FrontendController extends Controller
 
     private static function getSliders()
     {
-        return Slider::Where('publishStatus', true)->get();
+        return Slider::published()->get();
     }
 
     private function getAbout()
@@ -40,30 +40,31 @@ class FrontendController extends Controller
 
     private function getPartners()
     {
-        return Partners::get();
+        return Partners::published()->get();
     }
 
     private function getTestimonial()
     {
-        return Testimonial::latest()->get();
+        return Testimonial::published()->latest()->get();
     }
 
     private function getBlog()
     {
-        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'BLOG'))->latest()->limit(4)->get();
+        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'BLOG'))->published()->latest()->limit(4)->get();
     }
 
     private function getNotice()
     {
-        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'NOTICE'))->latest()->limit(4)->get();
+        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'NOTICE'))->published()->latest()->limit(4)->get();
     }
 
     private function getFeatures()
     {
-        return Extra::latest()->limit(3)->get();
+        return Extra::published()->latest()->limit(3)->get();
     }
 
-    private function getFeatureVideo(){
-        return Video::where('isFeatured',true)->latest()->first();
+    private function getFeatureVideo()
+    {
+        return Video::where('isFeatured', true)->published()->latest()->first();
     }
 }

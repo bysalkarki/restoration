@@ -35,8 +35,13 @@ class DetailController extends Controller
     {
         $data = [
             'teams' => Team::published()->orderBy('position')->get(),
-            'clients' => Partners::published()->get()
+            'partners' => Partners::published()->get()
         ];
         return view('front.team', $data);
+    }
+
+    public function teamDetail($slug)
+    {
+        return Team::where('username', $slug)->firstorfail();
     }
 }

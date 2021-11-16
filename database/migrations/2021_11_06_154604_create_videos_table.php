@@ -20,6 +20,7 @@ class CreateVideosTable extends Migration
             $table->string('image')->nullable();
             $table->string('url');
             $table->boolean('publishStatus')->default(1);
+            $table->boolean('isFeatured')->default(0);
             $table->timestamps();
         });
     }

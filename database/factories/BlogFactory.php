@@ -16,7 +16,7 @@ class BlogFactory extends Factory
     protected $model = Blog::class;
 
     /**
-     * Define the model's default state.
+     * Define the model's default state.iewor
      *
      * @return array
      */
@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'slug' => $this->faker->slug,
             'publishAt' => $this->faker->dateTime(),
             'publishStatus' => $this->faker->boolean,
-            'image' => $this->faker->word,
+            'image' => $this->faker->imageUrl,
         ];
     }
 }
