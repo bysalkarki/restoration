@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\front;
+namespace App\View\Components\Front;
 
 use App\Models\Menu;
 use Illuminate\View\Component;
