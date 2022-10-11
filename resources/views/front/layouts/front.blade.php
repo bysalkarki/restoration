@@ -71,7 +71,7 @@
                                         src="{{ config('settings.logo') }}" alt="" title=""></a></div>
                         </div>
 
-{{--                        <x-front.navbar />--}}
+                        <x-front.navbar />
                     </div>
                 </div>
             </div>

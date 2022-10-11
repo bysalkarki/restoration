@@ -17,7 +17,7 @@ class Table extends Component
         $this->headers = $headers;
     }
 
-    /**
+    /**f
      * Get the view / contents that represent the component.
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
