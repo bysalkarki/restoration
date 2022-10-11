@@ -5,8 +5,9 @@ namespace App\View\Components\Front;
 use App\Models\Menu;
 use Illuminate\View\Component;
 
-class navbar extends Component
+class Navbar extends Component
 {
+
     public $navbars;
     /**
      * Create a new component instance.
@@ -21,6 +22,8 @@ class navbar extends Component
     {
         return Menu::published()->orderBy('position')->get();
     }
+
+
     /**
      * Get the view / contents that represent the component.
      *
