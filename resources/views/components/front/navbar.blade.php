@@ -20,12 +20,6 @@
                         class="current"
                         @endif><a href="{{ url($navbar->route) }}">{{ $navbar->title }}</a></li>
                 @endforeach
-                {{-- <li class="dropdown"><a href="#">Vision/Mission</a>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="services-detail.html">Services Detail</a></li>
-                    </ul>
-                </li> --}}
             </ul>
         </div>
     </nav>
