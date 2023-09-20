@@ -32,7 +32,7 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <x-sidebar />
+        <x-sidebar/>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
