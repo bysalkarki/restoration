@@ -14,6 +14,15 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(5)->create();
+        $types = (new Category())->getType();
+        foreach($types as $type){
+            Category::create(
+                [
+                    'title'=>strtolower($type),
+                    'type'=>strtoupper($type),
+                    'publishStatus'=>true
+                ]
+            );
+        }
     }
 }

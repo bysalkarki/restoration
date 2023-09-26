@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appsetting;
 use App\Models\Blog;
 use App\Models\Extra;
 use App\Models\Menu;
@@ -24,6 +25,7 @@ class FrontendController extends Controller
             'blogs' => $this->getBlog(),
             'notices' => $this->getNotice(),
             'featureVideo' => $this->getFeatureVideo(),
+            'director'=>$this->getDirectorWords()
         ];
         return view('front.index', $data);
     }
@@ -50,21 +52,25 @@ class FrontendController extends Controller
 
     private function getBlog()
     {
-        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'BLOG'))->published()->latest()->limit(4)->get();
+        return Blog::published()->latest()->limit(4)->get();
     }
 
     private function getNotice()
     {
-        return Blog::whereHas('categories', fn ($query) => $query->where('type', 'NOTICE'))->published()->latest()->limit(4)->get();
+        return Blog::published()->latest()->limit(4)->get();
     }
 
     private function getFeatures()
     {
-        return Extra::published()->latest()->limit(3)->get();
+        return Extra::published()->latest()->limit(4)->get();
     }
 
     private function getFeatureVideo()
     {
         return Video::where('isFeatured', true)->published()->latest()->first();
+    }
+
+    private function getDirectorWords()
+    {
     }
 }

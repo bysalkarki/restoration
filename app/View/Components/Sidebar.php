@@ -114,7 +114,7 @@ class Sidebar extends Component
 
             //blogs
             [
-                'title' => 'blog/Notice',
+                'title' => 'Blog/Project',
                 'icon' => 'fas fa-archive',
                 'href' => '#',
                 'child' => [
@@ -258,6 +258,12 @@ class Sidebar extends Component
                         'href' => route('user.create'),
                     ]
                 ]
+            ],
+            [
+                'title' => 'director',
+                'icon' => 'fas fa-folder',
+                'href' => route('director.index'),
+                'child' => null,
             ],
             //AppSettings
             [

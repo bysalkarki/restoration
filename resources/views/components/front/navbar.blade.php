@@ -34,8 +34,7 @@
 
         <!-- Quote Btn -->
         <div class="btn-box">
-            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">make an
-                    appointment</span></a>
+            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Make Donation</span></a>
         </div>
 
     </div>

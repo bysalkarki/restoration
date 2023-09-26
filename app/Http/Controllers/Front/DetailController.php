@@ -44,4 +44,9 @@ class DetailController extends Controller
     {
         return Team::where('username', $slug)->firstorfail();
     }
+
+    public function about()
+    {
+        return Team::where('username', $slug)->firstorfail();
+    }
 }

@@ -18,6 +18,7 @@ class CreateAppsettingsTable extends Migration
             $table->string('key', 400);
             $table->longText('value');
             $table->string('type', 20);
+            $table->string('group', 20);
             $table->timestamps();
         });
     }

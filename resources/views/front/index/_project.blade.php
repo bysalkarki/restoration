@@ -5,7 +5,7 @@
               <div class="sec-title centered">
                   <div class="circle-box"></div>
                   <div class="title">SEE WHAT WE DO</div>
-                  <h2>Notices</h2>
+                  <h2>Projects</h2>
               </div>
               <div class="row clearfix">
                   @foreach ($notices as $notice)
@@ -31,8 +31,7 @@
 
               <!-- Button Box -->
               <div class="button-box text-center">
-                  <a href="services.html" class="theme-btn btn-style-one"><span class="txt">view all
-                          cases</span></a>
+                  <a href="services.html" class="theme-btn btn-style-one"><span class="txt">view all projects</span></a>
               </div>
 
           </div>

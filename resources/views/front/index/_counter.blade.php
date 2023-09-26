@@ -1,5 +1,5 @@
  <!-- Counter Section -->
- <section class="counter-section" style="background-image: url(images/bg2.jpg)">
+ <section class="counter-section" style="background-image: url({{$featureVideo->image}})">
      <div class="auto-container">
          <div class="row clearfix">
              <!-- Video Column -->
@@ -9,8 +9,6 @@
                          <a href="{{ $featureVideo->url }}" class="lightbox-image video-box"><span
                                  class="fa fa-play"><i class="ripple"></i></span></a>
                          <h2>{{ $featureVideo->title }}</h2>
-                         <div class="phone">Free Consulting: <a
-                                 href="tel:{{ config('settings.phone') }}">{{ config('settings.phone') }}</a></div>
                      </div>
                  </div>
              @endif <!-- Counter Column -->

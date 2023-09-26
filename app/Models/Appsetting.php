@@ -18,6 +18,7 @@ class Appsetting extends Model
         'key',
         'value',
         'type',
+        'group',
     ];
 
     /**

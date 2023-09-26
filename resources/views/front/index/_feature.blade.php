@@ -7,7 +7,7 @@ $data = ['fadeInLeft', 'fadeInUp', 'fadeInRight'];
 
             @foreach ($features as $key => $feature)
                 <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-block col-lg-3 col-md-6 col-sm-12">
                     <div class="inner-box wow {{ $data[$key % 3] }}" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="icon-outer">
                             <div class="image-layer" style="background-image: url(front/images/feature-1.jpg)"></div>

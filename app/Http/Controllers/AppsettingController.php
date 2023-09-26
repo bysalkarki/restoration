@@ -13,7 +13,7 @@ class AppsettingController extends Controller
      */
     public function index(Request $request)
     {
-        $appSettings = Appsetting::get();
+        $appSettings = Appsetting::where('group','settings')->get();
 
         return view('appsetting.form', compact('appSettings'));
     }
@@ -28,7 +28,14 @@ class AppsettingController extends Controller
                 Appsetting::set($key, $value);
             }
             request()->session()->flash('success', 'Appsetting updated successfully');
-            return redirect()->route('appsetting.index');
+            return redirect()->back();
 
+    }
+
+    public function director(Request $request)
+    {
+        $appSettings = Appsetting::where('group','messageFromDirector')->get();
+
+        return view('appsetting.form', compact('appSettings'));
     }
 }

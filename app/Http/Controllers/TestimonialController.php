@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class TestimonialController extends Controller
 {
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -24,7 +24,7 @@ class TestimonialController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -50,8 +50,8 @@ class TestimonialController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Testimonial $testimonial
+     * @param Request $request
+     * @param Testimonial $testimonial
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Testimonial $testimonial)
@@ -60,8 +60,8 @@ class TestimonialController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Testimonial $testimonial
+     * @param Request $request
+     * @param Testimonial $testimonial
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Testimonial $testimonial)
@@ -71,7 +71,7 @@ class TestimonialController extends Controller
 
     /**
      * @param \App\Http\Requests\TestimonialUpdateRequest $request
-     * @param \App\Models\Testimonial $testimonial
+     * @param Testimonial $testimonial
      * @return \Illuminate\Http\Response
      */
     public function update(TestimonialUpdateRequest $request, Testimonial $testimonial)
@@ -87,9 +87,8 @@ class TestimonialController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Testimonial $testimonial
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Testimonial $testimonial
      */
     public function destroy(Request $request, Testimonial $testimonial)
     {

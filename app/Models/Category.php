@@ -11,7 +11,7 @@ class Category extends Model
     protected const TYPE = [
         'BLOG' => 'blog',
         'GALLERY' => 'gallery',
-        'NOTICE' => 'notice',
+        'PROJECT' => 'project',
     ];
 
     /**

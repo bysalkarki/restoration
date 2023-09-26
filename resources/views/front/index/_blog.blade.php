@@ -4,8 +4,8 @@
             <!-- Sec Title -->
             <div class="sec-title centered">
                 <div class="circle-box"></div>
-                <div class="title">Our News</div>
-                <h2>Latest News</h2>
+                <div class="title">Article</div>
+                <h2>Latest Article</h2>
             </div>
             <div class="row clearfix">
 
@@ -19,14 +19,14 @@
                         @endif"
                             data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <a href="news-detail.html"><img src="{{ $blog->image }}" alt="" /></a>
+                                <a href="{{route('blog.detail',$blog->slug)}}"><img src="{{ $blog->image }}" alt="" /></a>
                             </div>
                             <div class="lower-content">
                                 <ul class="post-info">
-                                    <li>{{ $blog->publishAt->format('M d, Y') }}Dec 20, 2020</li>
+                                    <li>{{ $blog->publishAt->format('M d, Y') }}</li>
                                     <li><span class="icon fa fa-eye"></span>{{ $blog->view }}</li>
                                 </ul>
-                                <h4><a href="news-detail.html">{{ $blog->title }}</a></h4>
+                                <h4><a href="{{route('blog.detail',$blog->slug)}}">{{ $blog->title }}</a></h4>
                             </div>
                         </div>
                     </div>

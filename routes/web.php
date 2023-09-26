@@ -42,4 +42,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/{id}', [UserController::class, 'resetPasswordView'])->name('resetPasswordView');
         Route::patch('/{id}', [UserController::class, 'resetPassword'])->name('resetPassword');
     });
+
+    Route::prefix('director')->name('director.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\AppsettingController::class, 'director'])->name('index');
+        Route::post('/', [\App\Http\Controllers\AppsettingController::class, 'store'])->name('store');
+    });
 });
