@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appsetting;
 use App\Models\Blog;
+use App\Models\Counter;
 use App\Models\Extra;
 use App\Models\Menu;
 use App\Models\Partners;
@@ -25,7 +26,8 @@ class FrontendController extends Controller
             'blogs' => $this->getBlog(),
             'notices' => $this->getNotice(),
             'featureVideo' => $this->getFeatureVideo(),
-            'director'=>$this->getDirectorWords()
+            'director'=>$this->getDirectorWords(),
+            'counters'=> $this->getCounters(),
         ];
         return view('front.index', $data);
     }
@@ -72,5 +74,11 @@ class FrontendController extends Controller
 
     private function getDirectorWords()
     {
+        return '';
+    }
+
+    private function getCounters()
+    {
+        return Counter::published()->get();
     }
 }

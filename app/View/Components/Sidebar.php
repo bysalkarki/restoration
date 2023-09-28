@@ -241,6 +241,25 @@ class Sidebar extends Component
                     ]
                 ]
             ],
+
+            //testimonial
+            [
+                'title' => 'counter',
+                'icon' => 'fas fa-quote-left',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('counter.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('counter.create'),
+                    ]
+                ]
+            ],
             //User
             [
                 'title' => 'user',

@@ -32,6 +32,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('partner', App\Http\Controllers\PartnerController::class)->except('show');
     Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
+    Route::resource('counter', App\Http\Controllers\CounterController::class)->except('show');
     Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
     Route::resource('user', UserController::class);
     Route::prefix('contact')->name('contact.')->group(function () {

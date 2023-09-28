@@ -5,82 +5,97 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCounterRequest;
 use App\Http\Requests\UpdateCounterRequest;
 use App\Models\Counter;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Request;
 
 class CounterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+
+        $counters = Counter::all();
+
+        return view('counter.index', compact('counters')); //
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $counter = new Counter();
+        return view('counter.form', compact('counter'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCounterRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreCounterRequest $request
+     * @return Response
      */
     public function store(StoreCounterRequest $request)
     {
-        //
+        $counter = Counter::create($request->validated());
+
+        $request->session()->flash('counter.id', $counter->id);
+
+        return redirect()->route('counter.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Counter  $counter
-     * @return \Illuminate\Http\Response
+     * @param Counter $counter
+     * @return Response
      */
     public function show(Counter $counter)
     {
-        //
+        return view('counter.show', compact('counter'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Counter  $counter
-     * @return \Illuminate\Http\Response
+     * @param Counter $counter
+     * @return Response
      */
     public function edit(Counter $counter)
     {
-        //
+        return view('counter.form', compact('counter'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCounterRequest  $request
-     * @param  \App\Models\Counter  $counter
-     * @return \Illuminate\Http\Response
+     * @param UpdateCounterRequest $request
+     * @param Counter $counter
+     * @return Response
      */
     public function update(UpdateCounterRequest $request, Counter $counter)
     {
-        //
+        $counter->update($request->validated());
+
+        $request->session()->flash('counter.id', $counter->id);
+
+        return redirect()->route('counter.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Counter  $counter
-     * @return \Illuminate\Http\Response
+     * @param Counter $counter
+     * @return Response
      */
     public function destroy(Counter $counter)
     {
-        //
+        $counter->delete();
+
+        return redirect()->route('counter.index');
     }
 }

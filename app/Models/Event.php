@@ -18,7 +18,6 @@ class Event extends Model
         'title',
         'summary',
         'description',
-        'image',
         'date',
         'position',
         'publishStatus',
@@ -38,4 +37,8 @@ class Event extends Model
         'position' => 'integer',
         'publishStatus' => 'boolean',
     ];
+
+    public function images(){
+        return $this->hasMany(EventImages::class);
+    }
 }

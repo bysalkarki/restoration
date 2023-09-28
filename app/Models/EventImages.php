@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use App\Traits\PublishedTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Counter extends Model
+class EventImages extends Model
 {
     use HasFactory;
-    use PublishedTrait;
 
-    protected  $guarded = [];
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }

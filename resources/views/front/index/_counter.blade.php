@@ -18,56 +18,22 @@
                      <!-- Fact Counter -->
                      <div class="fact-counter">
                          <!-- Column -->
-                         <div class="column counter-column">
-                             <div class="inner">
-                                 <div class="icon flaticon-settings"></div>
-                                 <div class="content">
-                                     <div class="count-outer count-box">
-                                         <span class="count-text" data-speed="2500" data-stop="7">0</span>M
-                                     </div>
-                                     <h4 class="counter-title">Digital Projects</h4>
-                                 </div>
-                             </div>
-                         </div>
+                         @foreach($counters as $counter)
 
-                         <!-- Column -->
-                         <div class="column counter-column">
-                             <div class="inner">
-                                 <div class="icon flaticon-darts"></div>
-                                 <div class="content">
-                                     <div class="count-outer count-box alternate">
-                                         <span class="count-text" data-speed="2000" data-stop="5000">0</span>+
+                             <div class="column counter-column">
+                                 <div class="inner">
+                                     <div class="icon flaticon-settings"></div>
+                                     <div class="content">
+                                         <div class="count-outer count-box">
+                                             <span class="count-text" data-speed="2500"
+                                                   data-stop="{{$counter->max}}">{{$counter->min}}</span>M
+                                         </div>
+                                         <h4 class="counter-title">Digital Projects</h4>
                                      </div>
-                                     <h4 class="counter-title">Active Subscribing</h4>
                                  </div>
                              </div>
-                         </div>
+                         @endforeach
 
-                         <!-- Column -->
-                         <div class="column counter-column">
-                             <div class="inner">
-                                 <div class="icon flaticon-online-learning"></div>
-                                 <div class="content">
-                                     <div class="count-outer count-box">
-                                         <span class="count-text" data-speed="2000" data-stop="1">0</span>m
-                                     </div>
-                                     <h4 class="counter-title">Monthly Customer</h4>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <!-- Column -->
-                         <div class="column counter-column">
-                             <div class="inner">
-                                 <div class="icon flaticon-search"></div>
-                                 <div class="content">
-                                     <div class="count-outer count-box">
-                                         <span class="count-text" data-speed="2000" data-stop="160">0</span>+
-                                     </div>
-                                     <h4 class="counter-title">Professional Team</h4>
-                                 </div>
-                             </div>
-                         </div>
 
                      </div>
 

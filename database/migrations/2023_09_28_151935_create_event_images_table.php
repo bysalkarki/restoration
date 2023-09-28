@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCountersTable extends Migration
+class CreateEventImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCountersTable extends Migration
      */
     public function up()
     {
-        Schema::create('counters', function (Blueprint $table) {
+        Schema::create('event_images', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('min')->default(0)->nullable();
-            $table->integer('max')->default(1)->nullable();
-            $table->string('prefix')->nullable();
-            $table->boolean('publishStatus')->default(true);
+            $table->foreignIdFor(\App\Models\Event::class);
+            $table->string('image');
+            $table->string('text')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCountersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('counters');
+        Schema::dropIfExists('event_images');
     }
 }

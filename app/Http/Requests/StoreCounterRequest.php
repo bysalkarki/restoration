@@ -13,7 +13,7 @@ class StoreCounterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreCounterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'string'],
+            'min' => ['required', 'integer', 'gt:0'],
+            'max' => ['required', 'integer'],
+            'prefix' => ['string'],
+            'publishStatus' => ['nullable', 'boolean']
         ];
     }
 }
