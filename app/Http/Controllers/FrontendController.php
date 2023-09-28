@@ -26,8 +26,8 @@ class FrontendController extends Controller
             'blogs' => $this->getBlog(),
             'notices' => $this->getNotice(),
             'featureVideo' => $this->getFeatureVideo(),
-            'director'=>$this->getDirectorWords(),
-            'counters'=> $this->getCounters(),
+            'director' => $this->getDirectorWords(),
+            'counters' => $this->getCounters(),
         ];
         return view('front.index', $data);
     }
@@ -74,7 +74,7 @@ class FrontendController extends Controller
 
     private function getDirectorWords()
     {
-        return '';
+        return Appsetting::where('group', 'messageFromDirector')->get();
     }
 
     private function getCounters()

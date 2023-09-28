@@ -124,6 +124,25 @@ class AppsettingSeeder extends Seeder
                 'type' => 'image',
                 'group'=>'messageFromDirector'
             ],
+            [
+                'key' => 'founder',
+                'value' => 'Biren Sunuwar',
+                'type' => 'text',
+                'group'=>'messageFromDirector'
+            ],
+
+            [
+                'key' => 'header',
+                'value' => 'restoration Nepal',
+                'type' => 'text',
+                'group'=>'progress'
+            ],
+            [
+                'key' => 'description',
+                'value' => 'restoration Nepal',
+                'type' => 'textarea',
+                'group'=>'progress'
+            ],
 
         ];
     }

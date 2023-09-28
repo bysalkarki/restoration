@@ -32,7 +32,7 @@ class AppsettingServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!\App::runningInConsole() && count(Schema::getColumnListing('appsettings'))) {
-            $settings = Appsetting::all();
+            $settings = Appsetting::where('group','settings')->get();
             foreach ($settings as $key => $setting)
             {
                 Config::set('settings.'.$setting->key, $setting->value);

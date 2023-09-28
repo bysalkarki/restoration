@@ -26,9 +26,9 @@
                                      <div class="content">
                                          <div class="count-outer count-box">
                                              <span class="count-text" data-speed="2500"
-                                                   data-stop="{{$counter->max}}">{{$counter->min}}</span>M
+                                                   data-stop="{{$counter->max}}">{{$counter->min}}</span>{{$counter->prifix}}
                                          </div>
-                                         <h4 class="counter-title">Digital Projects</h4>
+                                         <h4 class="counter-title">{{$counter->title}}</h4>
                                      </div>
                                  </div>
                              </div>

@@ -27,6 +27,7 @@ class VideoFactory extends Factory
             'description' => $this->faker->text,
             'image' => $this->faker->word,
             'url' => $this->faker->url,
+            'isFeatured' => true,
         ];
     }
 }
