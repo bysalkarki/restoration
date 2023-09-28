@@ -147,37 +147,37 @@ class AppsettingSeeder extends Seeder
                 'key' => 'background1',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
             [
                 'key' => 'background2',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
             [
                 'key' => 'background3',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
             [
                 'key' => 'image1',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
             [
                 'key' => 'image2',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
             [
                 'key' => 'image3',
                 'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
                 'type' => 'image',
-                'group' => 'messageFromDirector'
+                'group' => 'progress'
             ],
 
         ];
