@@ -28,6 +28,8 @@ class FrontendController extends Controller
             'featureVideo' => $this->getFeatureVideo(),
             'director' => $this->getDirectorWords(),
             'counters' => $this->getCounters(),
+            'progress' => $this->getProgress(),
+            'progressCounter' => $this->getProgressCounter(),
         ];
         return view('front.index', $data);
     }
@@ -79,6 +81,16 @@ class FrontendController extends Controller
 
     private function getCounters()
     {
-        return Counter::published()->get();
+        return Counter::where('type','counter')->published()->get();
+    }
+
+    private function getProgress()
+    {
+        return Appsetting::where('group', 'progress')->get();
+    }
+
+    private function getProgressCounter()
+    {
+        return Counter::where('type','progress')->published()->get();
     }
 }

@@ -281,7 +281,13 @@ class Sidebar extends Component
             [
                 'title' => 'director',
                 'icon' => 'fas fa-folder',
-                'href' => route('director.index'),
+                'href' => route('appsetting.index',['type'=>'messageFromDirector']),
+                'child' => null,
+            ],
+            [
+                'title' => 'progress',
+                'icon' => 'fas fa-folder',
+                'href' => route('appsetting.index',['type'=>'progress']),
                 'child' => null,
             ],
             //AppSettings

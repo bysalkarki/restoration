@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Counter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCounterRequest extends FormRequest
@@ -28,7 +29,8 @@ class StoreCounterRequest extends FormRequest
             'min' => ['required', 'integer', 'gt:0'],
             'max' => ['required', 'integer'],
             'prefix' => ['string'],
-            'publishStatus' => ['nullable', 'boolean']
+            'publishStatus' => ['nullable', 'boolean'],
+            'type' => ['required', 'in:' . implode(",", Counter::TYPE)]
         ];
     }
 }

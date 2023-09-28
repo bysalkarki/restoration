@@ -33,7 +33,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('counter', App\Http\Controllers\CounterController::class)->except('show');
-    Route::resource('appsetting', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
+    Route::resource('appsetting/{type?}', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
+
+    Route::prefix('appsetting/{type?}')->name('appsetting.')->group(function(){
+        Route::get('/',[\App\Http\Controllers\AppsettingController::class,'index'])->name('index');
+        Route::post('/',[\App\Http\Controllers\AppsettingController::class,'store'])->name('store');
+    });
     Route::resource('user', UserController::class);
     Route::prefix('contact')->name('contact.')->group(function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
@@ -44,8 +49,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::patch('/{id}', [UserController::class, 'resetPassword'])->name('resetPassword');
     });
 
-    Route::prefix('director')->name('director.')->group(function () {
-        Route::get('/', [\App\Http\Controllers\AppsettingController::class, 'director'])->name('index');
-        Route::post('/', [\App\Http\Controllers\AppsettingController::class, 'store'])->name('store');
-    });
+
+
 });

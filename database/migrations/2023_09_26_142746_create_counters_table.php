@@ -20,6 +20,7 @@ class CreateCountersTable extends Migration
             $table->integer('max')->default(1)->nullable();
             $table->string('prefix')->nullable();
             $table->boolean('publishStatus')->default(true);
+            $table->enum('type', \App\Models\Counter::TYPE)->nullable();
             $table->timestamps();
         });
     }

@@ -29,10 +29,10 @@ class Appsetting extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-    public static function set($key, $value = null)
+    public static function set($key,  $type,$value = null)
     {
         $setting = new self();
-        $entry = $setting->where('key', $key)->first();
+        $entry = $setting->where('key', $key)->where('group',$type)->first();
         if (!$entry) {
             return null;
         }

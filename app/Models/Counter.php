@@ -11,5 +11,6 @@ class Counter extends Model
     use HasFactory;
     use PublishedTrait;
 
-    protected  $guarded = [];
+    protected $guarded = [];
+    public const TYPE = ['progress', 'counter'];
 }
