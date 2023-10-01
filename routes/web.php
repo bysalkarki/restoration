@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppsettingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -33,10 +33,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('counter', App\Http\Controllers\CounterController::class)->except('show');
+    Route::resource('popup', App\Http\Controllers\PopupController::class)->except('show');
 
-    Route::prefix('appsetting/{type?}')->name('appsetting.')->group(function(){
-        Route::get('/',[\App\Http\Controllers\AppsettingController::class,'index'])->name('index');
-        Route::post('/',[\App\Http\Controllers\AppsettingController::class,'store'])->name('store');
+    Route::prefix('appsetting/{type?}')->name('appsetting.')->group(function () {
+        Route::get('/', [AppsettingController::class, 'index'])->name('index');
+        Route::post('/', [AppsettingController::class, 'store'])->name('store');
     });
     Route::resource('user', UserController::class);
     Route::prefix('contact')->name('contact.')->group(function () {
@@ -47,7 +48,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/{id}', [UserController::class, 'resetPasswordView'])->name('resetPasswordView');
         Route::patch('/{id}', [UserController::class, 'resetPassword'])->name('resetPassword');
     });
-
 
 
 });
