@@ -18,6 +18,11 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AppsettingSeeder::class,
             VideoSeeder::class,
+            SliderSeeder::class,
+            CounterSeeder::class,
+            PartnerSeeder::class,
+            BlogSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }

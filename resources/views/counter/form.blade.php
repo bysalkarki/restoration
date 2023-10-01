@@ -10,8 +10,9 @@
         @endif
         @csrf
         <x-form.input name="title" :value="$counter->title" :option="['placeholder'=>'title','required'=>true]" />
-        <x-form.input type="number" name="min" :value="$counter->title" :option="['placeholder'=>'title','required'=>true]" />
-        <x-form.input type="number" name="max" :value="$counter->title" :option="['placeholder'=>'title','required'=>true]" />
+        <x-form.input type="number" name="min" :value="$counter->min" :option="['placeholder'=>'title','required'=>true]" />
+        <x-form.input type="number" name="max" :value="$counter->max" :option="['placeholder'=>'title','required'=>true]" />
+        <x-form.publishStatus name="type" :list='$counter::TYPE' :value="$counter->type"  label="Counter Type"/>
         <x-form.publishStatus :value="$counter->publishStatus" />
 
         <x-button-component />

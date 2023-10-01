@@ -24,7 +24,7 @@ class TestimonialFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'image' => $this->faker->regexify('[A-Za-z0-9]{400}'),
+            'image' => url('front/images/author-1.jpg'),
             'description' => $this->faker->text,
             'name' => $this->faker->name,
             'company' => $this->faker->company,

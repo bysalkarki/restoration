@@ -24,7 +24,7 @@ class PartnersFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'image' => $this->faker->word,
+            'image' => url('front/images/1.png'),
             'website' => $this->faker->word,
             'position' => $this->faker->randomNumber(),
             'publishStatus' => $this->faker->boolean,

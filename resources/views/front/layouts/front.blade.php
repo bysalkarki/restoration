@@ -100,8 +100,8 @@
 
                             <!-- Quote Btn -->
                             <div class="btn-box">
-                                <a href="contact.html" class="theme-btn btn-style-one"><span
-                                        class="txt">Donate Now</span></a>
+                                <a href="{{route('contact')}}" class="theme-btn btn-style-one"><span
+                                        class="txt">Contribute Now</span></a>
                             </div>
 
                         </div>

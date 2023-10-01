@@ -34,7 +34,7 @@
 
         <!-- Quote Btn -->
         <div class="btn-box">
-            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Make Donation</span></a>
+            <a href="{{route('contact')}}" class="theme-btn btn-style-one"><span class="txt">Make Contribution</span></a>
         </div>
 
     </div>

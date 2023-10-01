@@ -4,9 +4,9 @@
         <div class="main-slider-carousel owl-carousel owl-theme">
             @foreach ($sliders as $slider)
                 <div class="slide">
-                    <div class="icon-layer-one" style="background-image: url(front/images/icon-1.png)"></div>
-                    <div class="icon-layer-two" style="background-image: url(front/images/icon-2.png)"></div>
-                    <div class="icon-layer-three" style="background-image: url(front/images/icon-3.png)"></div>
+                    <div class="icon-layer-one" style="background-image: url('front/images/icon-1.png')"></div>
+                    <div class="icon-layer-two" style="background-image: url('front/images/icon-2.png')"></div>
+                    <div class="icon-layer-three" style="background-image: url('front/images/icon-3.png')"></div>
                     <div class="auto-container">
                         <div class="row clearfix">
                             <!-- Content Column -->

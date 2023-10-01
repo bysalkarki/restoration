@@ -25,8 +25,8 @@ class VideoFactory extends Factory
         return [
             'title' => $this->faker->sentence(4),
             'description' => $this->faker->text,
-            'image' => $this->faker->word,
-            'url' => $this->faker->url,
+            'image' => url('front/images/bg2.jpg'),
+            'url' => "https://www.youtube.com/watch?v=6NXnxTNIWkc",
             'isFeatured' => true,
         ];
     }

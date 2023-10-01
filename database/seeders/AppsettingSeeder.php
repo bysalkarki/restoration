@@ -24,19 +24,19 @@ class AppsettingSeeder extends Seeder
             ],
             [
                 'key' => 'favicon',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/favicon.png'),
                 'type' => 'image',
                 'group' => 'settings',
             ],
             [
                 'key' => 'logo',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/logo-small.png'),
                 'type' => 'image',
                 'group' => 'settings',
             ],
             [
                 'key' => 'footerLogo',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/logo.png'),
                 'type' => 'image',
                 'group' => 'settings',
             ],
@@ -93,7 +93,14 @@ class AppsettingSeeder extends Seeder
                 'value' => 'restoration Nepal',
                 'type' => 'textarea',
                 'group' => 'settings',
+            ],  [
+                'key' => 'map',
+                'value' => 'restoration Nepal',
+                'type' => 'textarea',
+                'group' => 'settings',
             ],
+
+            //message from director start
             [
                 'key' => 'header',
                 'value' => 'restoration Nepal',
@@ -108,19 +115,19 @@ class AppsettingSeeder extends Seeder
             ],
             [
                 'key' => 'directorLogo',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/business.jpg'),
                 'type' => 'image',
                 'group' => 'messageFromDirector'
             ],
             [
                 'key' => 'directorLogo1',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/business-1.jpg'),
                 'type' => 'image',
                 'group' => 'messageFromDirector'
             ],
             [
                 'key' => 'signature',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/signature.png'),
                 'type' => 'image',
                 'group' => 'messageFromDirector'
             ],
@@ -145,37 +152,37 @@ class AppsettingSeeder extends Seeder
             ],
             [
                 'key' => 'background1',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/icon-3.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],
             [
                 'key' => 'background2',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/icon-1.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],
             [
                 'key' => 'background3',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/icon-2.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],
             [
                 'key' => 'image1',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/progress-1.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],
             [
                 'key' => 'image2',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/progress-2.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],
             [
                 'key' => 'image3',
-                'value' => 'https://image.shutterstock.com/image-vector/y-letter-based-app-icon-260nw-1997950790.jpg',
+                'value' => url('front/images/progress-3.png'),
                 'type' => 'image',
                 'group' => 'progress'
             ],

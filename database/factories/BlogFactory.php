@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'slug' => $this->faker->slug,
             'publishAt' => $this->faker->dateTime(),
             'publishStatus' => $this->faker->boolean,
-            'image' => $this->faker->imageUrl,
+            'image' => url('front/images/news-2.jpg'),
         ];
     }
 }
