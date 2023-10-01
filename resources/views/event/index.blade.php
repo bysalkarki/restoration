@@ -20,7 +20,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center">No Event Data Found</td>
+                    <td colspan="6" class="text-center">No Event Data Found</td>
                 </tr>
             @endforelse
         </x-table.table>
