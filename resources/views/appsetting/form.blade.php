@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="appsetting" footer="footer">
+    <x-card :title="request()->type" :footer="request()->type">
         <form action="{{ route('appsetting.store',request()->type) }}" method="POST">
             @csrf
             @foreach ($appSettings as $setting)
@@ -18,5 +18,5 @@
 @endsection
 
 @section('breadcrumb')
-    <x-breadcrumb title="appsettings" />
+    <x-breadcrumb :title="request()->type" />
 @endsection

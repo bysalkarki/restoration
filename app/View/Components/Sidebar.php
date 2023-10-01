@@ -294,7 +294,7 @@ class Sidebar extends Component
             [
                 'title' => 'Setting',
                 'icon' => 'fas fa-cog',
-                'href' => route('appsetting.index'),
+                'href' => route('appsetting.index',['type'=>'settings']),
                 'child' => null,
             ]
         ];
