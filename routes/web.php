@@ -33,7 +33,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('testimonial', App\Http\Controllers\TestimonialController::class)->except('show');
     Route::resource('extra', App\Http\Controllers\ExtraController::class)->except('show');
     Route::resource('counter', App\Http\Controllers\CounterController::class)->except('show');
-    Route::resource('appsetting/{type?}', App\Http\Controllers\AppsettingController::class)->only('index', 'store');
 
     Route::prefix('appsetting/{type?}')->name('appsetting.')->group(function(){
         Route::get('/',[\App\Http\Controllers\AppsettingController::class,'index'])->name('index');

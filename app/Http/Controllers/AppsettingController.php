@@ -12,7 +12,7 @@ class AppsettingController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request, string $type = "settings")
+    public function index(Request $request, string $type)
     {
         $appSettings = Appsetting::where('group', $type)->get();
 

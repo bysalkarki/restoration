@@ -2,7 +2,7 @@
 
 @section('content')
     <x-card title="appsetting" footer="footer">
-        <form action="{{ route('appsetting.store',request()->get('type')) }}" method="POST">
+        <form action="{{ route('appsetting.store',request()->type) }}" method="POST">
             @csrf
             @foreach ($appSettings as $setting)
                 @if ($setting->type == 'image')

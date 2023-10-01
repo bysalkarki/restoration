@@ -20,7 +20,7 @@
                         <div class="inner-column">
                             <h2>Message From The Director</h2>
                             <div class="text">
-                                <p>{!! $director->where('key','header')->first()['value'] !!}</p>
+                                <p>{!! $director->where('key','description')->first()['value'] !!}</p>
                             </div>
                             <div class="founder">
                                 {!! $director->where('key','founder')->first()['value'] !!}

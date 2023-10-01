@@ -47,6 +47,6 @@ class DetailController extends Controller
 
     public function about()
     {
-        return Team::where('username', $slug)->firstorfail();
+        return view('front.about');
     }
 }

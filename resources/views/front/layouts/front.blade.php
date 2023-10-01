@@ -134,11 +134,6 @@
                     <a href="{{ route('index') }}"><img src="{{ config('settings.footerLogo') }}" alt="" /></a>
                 </div>
                 <div class="text">{{ config('settings.footerText') }}</div>
-                <ul class="footer-list">
-                    <li><a href="#">Privacy Statement</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Sitemap</a></li>
-                </ul>
                 <div class="copyright">&copy; Copyright {{now()->format('Y')}} <a
                         href="{{ route('index') }}">{{ config('settings.name') }}.</a> All Rights
                     Reserved.
@@ -154,9 +149,10 @@
     <div class="search-popup">
         <button class="close-search style-two"><span class="flaticon-multiply"></span></button>
         <button class="close-search"><span class="fa fa-arrow-up"></span></button>
-        <form method="post" action="blog.html">
+        <form method="post" action="{{route('search')}}">
+            @csrf
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <input type="search" name="search" value="" placeholder="Search Here" required="">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
         </form>

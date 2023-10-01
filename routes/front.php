@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\DetailController;
+use App\Http\Controllers\Front\SearchController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,4 @@ Route::get('/team', [DetailController::class, 'team'])->name('team');
 Route::get('/team/{slug}', [DetailController::class, 'teamDetail'])->name('team.detail');
 Route::get('/about', [DetailController::class, 'about'])->name('about');
 Route::post('/contact-store', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/search', [SearchController::class, 'search'])->name('search');
