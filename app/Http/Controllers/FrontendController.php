@@ -8,6 +8,7 @@ use App\Models\Counter;
 use App\Models\Extra;
 use App\Models\Menu;
 use App\Models\Partners;
+use App\Models\Popup;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\Video;
@@ -30,6 +31,7 @@ class FrontendController extends Controller
             'counters' => $this->getCounters(),
             'progress' => $this->getProgress(),
             'progressCounter' => $this->getProgressCounter(),
+            'popups' => $this->getPopups(),
         ];
         return view('front.index', $data);
     }
@@ -81,7 +83,7 @@ class FrontendController extends Controller
 
     private function getCounters()
     {
-        return Counter::where('type','counter')->published()->get();
+        return Counter::where('type', 'counter')->published()->get();
     }
 
     private function getProgress()
@@ -91,6 +93,11 @@ class FrontendController extends Controller
 
     private function getProgressCounter()
     {
-        return Counter::where('type','progress')->published()->get();
+        return Counter::where('type', 'progress')->published()->get();
+    }
+
+    private function getPopups()
+    {
+        return Popup::latest()->published()->first();
     }
 }

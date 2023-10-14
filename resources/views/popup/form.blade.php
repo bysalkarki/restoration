@@ -9,11 +9,11 @@
                     <form action="{{ route('popup.store') }}" method="POST">
                         @endif
                         @csrf
-                        <x-form.input name="name" :value="$popup->title"
+                        <x-form.input name="title" :value="$popup->title"
                                       :option="['placeholder'=>'popup','required'=>true]"/>
                         <x-form.publishStatus :value="$popup->publishStatus"/>
                         <x-form.image title="image" :value="$popup->image"/>
-                        <x-form.input type="url" :value="$popup->url" name="website"
+                        <x-form.input type="url" :value="$popup->url" name="url"
                                       :option="['placeholder'=>'url','required'=>true]"/>
                         <x-form.input name="description" type="textarea" :value="$popup->description"
                                       :option="['placeholder'=>'popup description','required'=>true]"/>

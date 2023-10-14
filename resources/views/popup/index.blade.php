@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-card title="popup" :footer="$popup->links()" create='popup.create'>
+    <x-card title="popup" :footer="$popups->links()" create='popup.create'>
         <x-table.table :headers='["#","title","image","url","publish status","action"]'>
             @forelse ($popups as $key=>$popup)
                 <tr>

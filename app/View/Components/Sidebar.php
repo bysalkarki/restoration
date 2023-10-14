@@ -277,6 +277,22 @@ class Sidebar extends Component
                         'href' => route('user.create'),
                     ]
                 ]
+            ], [
+                'title' => 'popup',
+                'icon' => 'fas fa-user',
+                'href' => '#',
+                'child' => [
+                    [
+                        'title' => 'List',
+                        'icon' => 'fas fa-list',
+                        'href' => route('popup.index'),
+                    ],
+                    [
+                        'title' => 'create',
+                        'icon' => 'fas fa-store ',
+                        'href' => route('popup.create'),
+                    ]
+                ]
             ],
             [
                 'title' => 'director',

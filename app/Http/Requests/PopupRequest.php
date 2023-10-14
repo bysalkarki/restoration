@@ -26,7 +26,7 @@ class PopupRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'image' => ['required'],
-            'description' => ['nillable', 'string'],
+            'description' => ['nullable', 'string'],
             'url' => ['required', 'url'],
             'publishStatus' => ['required'],
         ];

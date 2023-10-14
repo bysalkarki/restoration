@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PopupRequest;
-use App\Models\popup;
+use App\Models\Popup;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -16,7 +17,7 @@ class PopupController extends Controller
      */
     public function index()
     {
-        $popups = Popup::get();
+        $popups = Popup::paginate();
         return view('popup.index', compact('popups'));
     }
 
@@ -34,12 +35,10 @@ class PopupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param PopupRequest $request
-     * @return Response
      */
-    public function store(PopupRequest $request)
+    public function store(PopupRequest $request): RedirectResponse
     {
-        $popup = Popup::create($request->validated());
+         Popup::create($request->validated());
 
         $request->session()->flash('success', 'popup added successfully');
 
@@ -63,9 +62,9 @@ class PopupController extends Controller
      *
      * @param Request $request
      * @param popup $popup
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, popup $popup)
+    public function update(PopupRequest $request, popup $popup)
     {
         $popup->update($request->validated());
 
@@ -78,12 +77,13 @@ class PopupController extends Controller
      * Remove the specified resource from storage.
      *
      * @param popup $popup
-     * @return Response
+     * @return
      */
-    public function destroy(popup $popup)
+    public function destroy(popup $popup): RedirectResponse
     {
         $popup->delete();
 
         return redirect()->route('popup.index');
     }
 }
+
